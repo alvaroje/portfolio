@@ -14,13 +14,13 @@ Soy un desarrollador de aplicaciones web con experiencia en **JavaScript, Python
 - **Otras habilidades:** Docker, CI/CD, Testing  
 
 ## 🚀 Proyectos destacados  
-🔹 [Mi Portafolio Web](https://github.com/tuusuario/portfolio) → Mi sitio personal con mis proyectos y experiencia.  
+🔹 [Mi Portafolio Web](https://alvaroje.github.io/portfolio/) → Mi sitio personal con mis proyectos y experiencia.  
 🔹 [Tres en Raya en JS](https://github.com/tuusuario/tres-en-raya) → Un juego interactivo hecho con JavaScript.  
 🔹 [IA con Python](https://github.com/tuusuario/ia-proyecto) → Modelos de Machine Learning aplicados a predicciones.  
 
 ## 📫 Contacto  
-- **GitHub:** [github.com/tuusuario](https://github.com/tuusuario)  
-- **LinkedIn:** [linkedin.com/in/tuusuario](https://linkedin.com/in/tuusuario)  
-- **Email:** [correo@example.com](mailto:correo@example.com)  
+- **GitHub:** [github.com/tuusuario](https://alvaroje.github.io/)  
+- **LinkedIn:** [linkedin.com/in/tuusuario](https://www.linkedin.com/in/alvaro-perez-moreno-callejo-82506026a/)  
+- **Email:** [correo@example.com](mailto:alvaropmc157@gmail.com)  
 
 💡 *Siempre abierto a nuevas oportunidades y colaboraciones.* ¡No dudes en contactarme! 🚀  
