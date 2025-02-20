@@ -587,28 +587,20 @@ html{
     width: 100%;
 }
 .contacto .col img{
-    width: 100%;
+    width: 40px;
+    height: auto;
+    margin: 0 20px 0 20px;
 }
-.contacto .col .info{
-    position: absolute;
-    top: 40%;
-    background-color: #252A2E;
-    padding: 20px;
-    max-width: 350px;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
+.col a {
+    text-decoration: none;
+    color: white;
 }
-.contacto .col .info ul{
-    list-style: none;
+
+.col p {
+    padding-bottom: 10px;
 }
-.contacto .col .info ul li{
-    margin-bottom: 20px;
-}
-.contacto .col .info ul li i{
-    color: #1CB698;
-    display: inline-block;
-    margin-right: 20px;
-}
+
 footer{
     background-color: #252A2E;
     color: #fff;
