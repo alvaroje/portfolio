@@ -19,7 +19,7 @@ Soy un desarrollador de aplicaciones web con experiencia en **JavaScript, Python
 🔹 [IA con Python](https://github.com/tuusuario/ia-proyecto) → Modelos de Machine Learning aplicados a predicciones.  
 
 ## 📫 Contacto  
-- **GitHub:** [github.com/alvaroje](https://alvaroje.github.io/)  
+- **GitHub:** [github.com/alvaroje](https://github.com/alvaroje)  
 - **LinkedIn:** [linkedin.com/in/alvaro-perez-moreno-callejo](https://www.linkedin.com/in/alvaro-perez-moreno-callejo-82506026a/)  
 - **Email:** [alvaropmc157@gmail.com](mailto:alvaropmc157@gmail.com)  
 
