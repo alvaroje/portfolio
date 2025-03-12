@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/CalculadoraPro/calcu.css">
+    <title>Calculadora</title>
+</head>
+<body>
+    <header></header>
+    <main>
+        <div class="contenedor">
+            <div class="resul"><p id="string"></p></div>
+            <div class="botones">
+                <div><button id="btn-suma" class="operadores btn" value="+">+</button></div>
+                <div><button id="btn-resta" class="operadores btn" value="-">-</button></div>
+                <div><button id="btn-mult" class="operadores btn" value="*">*</button></div>
+                <div><button id="btn-div" class="operadores btn" value="÷">÷</button></div>
+                <div><button id="btn-div1" class="btn"  value="1">1</button></div>
+                <div><button id="btn-div2" class="btn" value="2">2</button></div>
+                <div><button id="btn-div3" class="btn" value="3">3</button></div>
+                <div><button id="btn-div4" class="btn" value="4">4</button></div>
+                <div><button id="btn-div5" class="btn" value="5">5</button></div>
+                <div><button id="btn-div6" class="btn" value="6">6</button></div>
+                <div><button id="btn-div7" class="btn" value="7">7</button></div>
+                <div><button id="btn-div8" class="btn" value="8">8</button></div>
+                <div><button id="btn-div9" class="btn" value="9">9</button></div>
+                <div><button id="btn-div0" class="btn" value="0">0</button></div>
+                <div><button id="btn-div." class="btn"value=".">.</button></div>
+                <div><button id="btn-div" class="nada"></button></div>
+                <div><button id="btn-div=" class="equal" onclick="operarInfinito()">=</button></div>
+                <div><button id="btn-div-del" class="del" onclick="del()">&lt;=</button></div>
+                <div><button id="btn-divAC" class="delete" onclick="eliminar()">AC</button></div>
+            </div>
+        </div>
+    </main>
+    <script src="/CalculadoraPro/calcu.js"></script>
+</body>
+</html>
