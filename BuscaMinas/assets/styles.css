@@ -87,7 +87,7 @@ button:active {
 }
 
 .botonBomba {
-    background: url(/BuscaMinas/assets/img/photo-bomb.jpg) no-repeat center center;
+    background: url(BuscaMinas/assets/img/photo-bomb.jpg) no-repeat center center;
     background-size: cover;
     outline: red solid 3px;
 
