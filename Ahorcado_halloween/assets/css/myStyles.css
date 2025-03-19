@@ -1,5 +1,5 @@
 body{
-    background-image: url(/Ahorcado_halloween/assets/img/background-the-moon-the-darkness-black-Trees.jpg);
+    background-image: url(assets/img/background-the-moon-the-darkness-black-Trees.jpg);
 }
 
 h1 {
@@ -19,7 +19,7 @@ h1 {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-image: url(/Ahorcado_halloween/assets/img/halloween-4571838_1920.jpg);
+    background-image: url(assets/img/halloween-4571838_1920.jpg);
     animation: hithere 1s ease ;
 }
 
