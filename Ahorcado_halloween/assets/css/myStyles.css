@@ -1,0 +1,97 @@
+body{
+    background-image: url(/Ahorcado_halloween/assets/img/background-the-moon-the-darkness-black-Trees.jpg);
+}
+
+h1 {
+    font-family: "Rubik Wet Paint", system-ui;
+    font-size: 3em;
+    font-style: normal;
+    color: rgb(16, 238, 9); 
+    text-shadow: 3px 3px 1px #c91407;
+}
+
+.principal{
+    width: 75%;
+    border-radius: 30px;
+    text-align: center;
+    border: 5px solid black;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url(/Ahorcado_halloween/assets/img/halloween-4571838_1920.jpg);
+    animation: hithere 1s ease ;
+}
+
+.principal:hover{
+    zoom: 105%;
+}
+
+@keyframes hithere {
+    30% { transform: scale(3.2); }
+    40%, 60% { transform: rotate(-20deg) scale(1.2); }
+    50% { transform: rotate(20deg) scale(1.2); }
+   
+}
+
+.img{
+    border: 5px solid rgb(228, 225, 51);
+    width: 300px;
+    height: 300px;
+}
+
+.letra1{
+    font-size: 3em;
+    font-style: normal;
+    color: rgb(16, 238, 9); 
+    text-shadow: 3px 3px 1px #c91407;
+}
+
+.letra{
+    font-size: 2em;
+    font-style: normal;
+    color: rgb(16, 238, 9); 
+    text-shadow: 3px 3px 1px #c91407;
+}
+
+.letra2{
+    font-size: 2.5em;
+    font-style: normal;
+    color: rgb(240, 10, 10); 
+}
+
+.entrada{
+    width: 10%;
+    /*padding: 10px 15px;*/
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1.5em; 
+}
+
+.boton{
+    width: 5%;
+
+}
+
+.miBoton{
+    font-size: 2em;
+}
+
+.msj{
+    font-size: 2em;
+    font-style: normal;
+    color: rgb(92, 174, 221); 
+}
+.btnReinicio{
+    width: 200px;
+    height: 40px;
+    border-radius: 4px
+    
+}
+
+button {
+    cursor: pointer;
+}

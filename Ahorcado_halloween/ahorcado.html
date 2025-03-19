@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/myStyles.css">
+    <title>AHORCADO</title>
+</head>
+<body>
+    <audio id="sonido" autoplay>
+        <source src="assets/mp3/The Omen Main Theme-Ave Satani.mp3" type="audio/mpeg">
+        Tu navegador no soporta la etiqueta de audio.
+    </audio>
+    <div class="principal">
+        <div class="contenedor">
+            <div><h1>Ahorcado Peliculas de Terror</h1></div>
+            <div class="reset">
+                <button type="button" id="btnReinicio" class="btnReinicio"><span class="miBoton">REINICIAR</span></button>
+            </div>
+            <div>
+                <p id="pelicula_aleatoria" class="letra"></p>
+                <p id="pelicula_adivinar" class="letra1"></p>
+
+            </div>
+            <div id="inputContainer">
+                <input class="entrada" type="text" id="inputLetra" placeholder="letra" maxlength="1">
+                <button  id="boton"><span class="miBoton">OK</span></button>
+            </div>
+            <p class="letra2">Errores: <span id="intentos">0</span></p>
+            <p class="msj" id="mensaje"></p>
+        </div>
+        <div class="contImagen">
+            <img class="img" id="imagen" src="assets/img/ahorcado0.png" alt="ahorcado">
+        </div>
+    </div>
+
+    <script src="assets/js/ahorcado.js"></script>
+</body>
+</html>
