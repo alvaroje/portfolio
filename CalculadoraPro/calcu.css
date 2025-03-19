@@ -88,3 +88,57 @@ button:hover {
     color: white;
     background-color: rgb(255, 51, 0);
 }
+
+/* --- ADAPTACIÓN A MÓVILES --- */
+@media (max-width: 600px) {
+    .contenedor {
+        width: 75%;
+        margin-top: 10%;
+        padding: 15px;
+    }
+
+    .resul {
+        height: 70px;
+    }
+
+    .resul p {
+        font-size: 28px;
+    }
+
+    .botones {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+    }
+
+    .botones div button {
+        width: 70px;
+        height: 55px;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .contenedor {
+        width: 100%;
+        margin-top: 5%;
+        padding: 10px;
+    }
+
+    .resul {
+        height: 60px;
+    }
+
+    .resul p {
+        font-size: 24px;
+    }
+
+    .botones {
+        gap: 1px;
+    }
+
+    .botones div button {
+        width: 60px;
+        height: 50px;
+        font-size: 18px;
+    }
+}
