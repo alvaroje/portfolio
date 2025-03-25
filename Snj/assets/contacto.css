@@ -3,7 +3,9 @@
 }
 
 header {
-    background-color: #68d791;
+    /* background-color: #68d791; */
+	background: url(img/snj_header_piedra.jpg) no-repeat center center;
+    background-size: cover;
     color: white;
     padding: 10px 20px;
     display: flex;
