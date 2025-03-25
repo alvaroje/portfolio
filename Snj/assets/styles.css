@@ -7,7 +7,13 @@ body {
 }
 
 header {
-    background-color: #68d791;
+    /* background-image: url(/Snj/assets/img/snj_header_black_texture.jpg); */
+    /* background: url(/Snj/assets/img/snj_header_brick-wall-texture.jpg) no-repeat center center; */
+    background: url(/Snj/assets/img/snj_header_piedra.jpg) no-repeat center center;
+    /* background-color: #17181a; */
+    /* background-color: #080b08; */
+    /* background-color: #68d791; */
+    background-size: cover;
     color: white;
     padding: 10px 20px;
     display: flex;
