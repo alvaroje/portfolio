@@ -29,12 +29,22 @@ header img {
 }
 
 header h1 {
-    flex: 1;
-    text-align: center;
+    position: absolute;
+    left: 50%;
+    top: 3%;
+    transform: translateX(-50%);
     margin: 0;
-    padding-left: 17%;
     font-size: 24px;
     text-shadow: #000000 1px 0 10px;
+}
+
+header h1:hover {
+    color: #68d791;
+}
+
+header a {
+    text-decoration: none;
+    color: white;
 }
 
 nav {
@@ -61,8 +71,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    color: #333;
-    text-shadow: #ffffff 1px 0 10px;
+    color: #68d791;
 }
 
 .intro {
@@ -112,7 +121,6 @@ main {
     margin-top: 10px;
     margin-bottom: 5px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-
 }
 
 .content h3 {
@@ -144,6 +152,43 @@ main {
     width: 100%;
     height: 900px;
     border-radius: 20px;
+}
+
+.nav-responsive {
+    display: none;
+}
+
+.nav-responsive i {
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.nav-responsive i:hover{
+    color: #68d791;
+}
+
+@media screen and (max-width: 980px) {
+    nav {
+        display: none;
+    }
+    .nav-responsive {
+        display: block;
+    }
+    nav.responsive {
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 75px;
+        background-color: #252A2E;
+        width: 180px;
+    }
+    nav.responsive ul {
+        display: block !important;
+    }
+    nav.responsive ul li {
+        border-bottom: 1px solid #fff;
+        padding: 10px 0;
+    }
 }
 
 @media screen and (max-width: 1520px) {
