@@ -31,7 +31,7 @@ header img {
 header h1 {
     position: absolute;
     left: 50%;
-    top: 3%;
+    top: 3.2%;
     transform: translateX(-50%);
     margin: 0;
     font-size: 24px;
@@ -40,6 +40,7 @@ header h1 {
 
 header h1:hover {
     color: #68d791;
+    transition: .3s;
 }
 
 header a {
