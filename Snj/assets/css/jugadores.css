@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: #333;
+}
+
+.header-jugadores {
+	color: #68d791;
+}
+
+.jugadores {
+    display: flex;
+    margin: 40px 40px 40px 40px;
+}
+
+.pj {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 300px;
+    height: 400px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+
+.pj button {
+    background-color: #68d791;
+}
+
+.pj button:hover {
+    cursor: pointer;
+}
+
+footer {
+    position: absolute;
+  	bottom: 0;
+    background-color: #68d791;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    bottom: 0;
+    width: 100%;
+}
