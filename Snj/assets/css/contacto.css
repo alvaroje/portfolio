@@ -15,8 +15,10 @@ body {
 }
 
 main {
-	flex: 1; /* Hace que el main ocupe el espacio disponible entre el header y el footer */
+    flex: 1; /* Hace que el main ocupe el espacio disponible entre el header y el footer */
     width: 100%;
+    background: url(../img/fondo_marmol.webp) no-repeat center center;
+    background-size: cover;
 }
 
 .mainForm {

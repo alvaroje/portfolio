@@ -39,6 +39,8 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    background: url(../img/fondo_marmol.webp) no-repeat center center;
+    background-size: cover;
 }
 
 .content {
