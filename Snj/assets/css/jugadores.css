@@ -4,15 +4,25 @@ body {
     padding: 0;
     background-color: white;
     color: #333;
+    display: flex;
+    flex-direction: column; /* Configura el body como un contenedor flex */
+    min-height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
 }
 
 .header-jugadores {
 	color: #68d791;
 }
 
+main {
+    flex: 1; /* Hace que el main ocupe el espacio disponible entre el header y el footer */
+    width: 100%;
+    background: url(../img/fondo_marmol.webp) no-repeat center center;
+    background-size: cover;
+}
+
 .jugadores {
     display: flex;
-    margin: 40px 40px 40px 40px;
+    padding: 40px 40px 40px 40px;
 }
 
 .pj {
@@ -33,13 +43,89 @@ body {
     cursor: pointer;
 }
 
+/* Animación para los jugadores */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.jugador {
+    text-align: center;
+    width: 200px;
+    opacity: 0; /* Inicialmente invisible */
+    animation: fadeInUp 0.8s ease forwards; /* Animación */
+}
+
+/* Agrupación para que los jugadores de la misma columna se animen juntos */
+.jugador:nth-child(1),
+.jugador:nth-child(8) {
+    animation-delay: 0.1s;
+}
+
+.jugador:nth-child(2),
+.jugador:nth-child(9) {
+    animation-delay: 0.2s;
+}
+
+.jugador:nth-child(3),
+.jugador:nth-child(10) {
+    animation-delay: 0.3s;
+}
+
+.jugador:nth-child(4),
+.jugador:nth-child(11) {
+    animation-delay: 0.4s;
+}
+
+.jugador:nth-child(5),
+.jugador:nth-child(12) {
+    animation-delay: 0.5s;
+}
+
+.jugador:nth-child(6),
+.jugador:nth-child(13) {
+    animation-delay: 0.6s;
+}
+
+.jugador:nth-child(7),
+.jugador:nth-child(14) {
+    animation-delay: 0.7s;
+}
+
+.jugadores {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 70px;
+    padding: 20px;
+}
+
+.jugador img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    cursor: pointer;
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+}
+
+.jugador p {
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
 footer {
-    position: absolute;
-  	bottom: 0;
     background-color: #68d791;
     color: white;
     text-align: center;
     padding: 10px 0;
-    bottom: 0;
     width: 100%;
+    position: relative; /* Elimina el posicionamiento absoluto */
 }

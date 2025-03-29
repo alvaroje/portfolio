@@ -4,19 +4,26 @@ body {
     padding: 0;
     background-color: white;
     color: #333;
+    flex-direction: column; /* Configura el body como un contenedor flex */
+    min-height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
 }
 
 .header-partidos {
 	color: #68d791;
 }
 
+main {
+  flex: 1; /* Hace que el main ocupe el espacio disponible entre el header y el footer */
+  width: 100%;
+  background: url(../img/fondo_marmol.webp) no-repeat center center;
+  background-size: cover;
+}
+
 footer {
-    position: absolute;
-  	bottom: 0;
-    background-color: #68d791;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    bottom: 0;
-    width: 100%;
+  background-color: #68d791;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  position: relative; /* Elimina el posicionamiento absoluto */
 }
