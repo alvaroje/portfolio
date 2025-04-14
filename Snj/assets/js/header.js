@@ -63,6 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     nav {
         margin-right: 10px;
+        z-index: 99;
     }
 
     nav ul {
@@ -89,6 +90,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     .nav-responsive {
+        z-index: 99;
+    }
+
+    .nav-responsive {
         display: none;
     }
 
@@ -107,10 +112,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         .nav-responsive {
             display: block;
+            z-index: 99;
         }
         nav.responsive {
             display: block;
             position: absolute;
+            z-index: 99;
             right: 0;
             top: 75px;
             background-color: #252A2E;
