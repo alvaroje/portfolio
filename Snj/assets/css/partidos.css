@@ -1,22 +1,123 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: white;
-    color: #333;
-    flex-direction: column; /* Configura el body como un contenedor flex */
-    min-height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
-}
-
-.header-partidos {
-	color: #68d791;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: white;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 main {
-  flex: 1; /* Hace que el main ocupe el espacio disponible entre el header y el footer */
+  flex: 1;
   width: 100%;
   background: url(../img/fondo_marmol.webp) no-repeat center center;
   background-size: cover;
+  padding: 20px 0;
+}
+
+.partidos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.carta-partido {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  max-width: 1200px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 15px 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carta-partido:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.equipo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 20%;
+}
+
+.equipo img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.equipo h3 {
+  margin: 5px 0;
+  font-size: 18px;
+  color: #333;
+}
+
+.goles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  padding: 0 10px;
+}
+
+.goles h4 {
+  margin: 0 0 5px 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.goles p {
+  margin: 2px 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.resultado {
+  display: flex;
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  width: 20%; /* Ajusta el ancho del resultado */
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  height: 100%; /* Asegura que ocupe toda la altura de la carta */
+}
+
+.jornada {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  padding: 0 10px;
+}
+
+.jornada h4 {
+  margin: 0 0 5px 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.jornada p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #666;
 }
 
 footer {
@@ -25,5 +126,4 @@ footer {
   text-align: center;
   padding: 10px 0;
   width: 100%;
-  position: relative; /* Elimina el posicionamiento absoluto */
 }
