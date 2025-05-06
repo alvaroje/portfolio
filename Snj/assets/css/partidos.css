@@ -33,6 +33,27 @@ main {
   font-size: 16px;
 }
 
+.campo-busqueda {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.icono-lupa {
+  position: absolute;
+  left: 10px;
+  font-size: 16px;
+  color: #888;
+}
+
+.campo-busqueda input {
+  padding: 10px 10px 10px 30px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+
 .partidos {
   display: flex;
   flex-direction: column;
