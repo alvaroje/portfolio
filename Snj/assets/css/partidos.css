@@ -111,13 +111,6 @@ main {
   padding: 0 10px;
 }
 
-.goles h4 {
-  margin: 0 0 5px 0;
-  font-size: 16px;
-  font-weight: bold;
-  color: #333;
-}
-
 .goles p {
   margin: 2px 0;
   font-size: 14px;
@@ -175,5 +168,8 @@ footer {
 @media screen and (max-width: 450px) {
   .filtros input {
     width: 70%;
+  }
+  .goles p {
+    font-size: 11px;
   }
 }
