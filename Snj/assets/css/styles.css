@@ -43,6 +43,86 @@ main {
     background-size: cover;
 }
 
+.clasificacion-section {
+    background-image: url('../img/fondo-futbol-sport-.jpeg');
+    background-size: cover;
+    background-position: center;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.tabla-clasificacion {
+    width: 90%;
+    max-width: 800px;
+    background-color: rgba(0, 0, 0, 0.6); /* fondo negro semitransparente */
+    color: white;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.tabla-clasificacion th,
+.tabla-clasificacion td {
+    padding: 12px;
+    text-align: left;
+}
+
+.tabla-clasificacion thead {
+    background-color: rgba(34, 139, 34, 0.8); /* verde estilo césped */
+    font-weight: bold;
+}
+
+.tabla-clasificacion tbody tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.tabla-clasificacion tbody tr:hover {
+    background-color: rgba(34, 139, 34, 0.5);
+}
+
+.tabla-clasificacion img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    vertical-align: middle;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.tabla-clasificacion tbody tr:nth-child(1) td {
+    color: gold;
+    font-weight: bold;
+}
+.tabla-clasificacion tbody tr:nth-child(2) td {
+    color: silver;
+    font-weight: bold;
+}
+.tabla-clasificacion tbody tr:nth-child(3) td {
+    color: #cd7f32; /* bronce */
+    font-weight: bold;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .tabla-clasificacion th, .tabla-clasificacion td {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    .tabla-clasificacion img {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+    }
+}
+
+
 .content {
     border-radius: 20px;
     width: 60%;
