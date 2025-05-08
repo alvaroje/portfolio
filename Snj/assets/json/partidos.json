@@ -30,7 +30,7 @@
         "goles": [],
         "resultado": "0 - 5",
         "rival": "RUINAS",
-        "rivalImg": "",
+        "rivalImg": "assets/img/logo_equipos/ruinas.jpg",
         "lugar": "Centro Deportivo Municipal Moratalaz",
         "fecha": "10/11/24",
         "hora": "19:45"
@@ -42,7 +42,7 @@
         "goles": ["'34 HECTOR"],
         "resultado": "1 - 2",
         "rival": "SCHALKE 030",
-        "rivalImg": "",
+        "rivalImg": "assets/img/logo_equipos/shelke.jpg",
         "lugar": "Centro Deportivo Municipal Moratalaz",
         "fecha": "17/11/24",
         "hora": "16:10"
@@ -54,7 +54,7 @@
         "goles": ["'37 GUILLERMO"],
         "resultado": "1 - 1",
         "rival": "SEMPER CD",
-        "rivalImg": "",
+        "rivalImg": "assets/img/logo_equipos/semper.jpg",
         "lugar": "Centro Deportivo Municipal Moratalaz",
         "fecha": "24/11/24",
         "hora": "15:00"
@@ -66,7 +66,7 @@
         "goles": ["'17 GUILLERMO", "'23 NICO", "'39 NICO", "'42 GUILLERMO"],
         "resultado": "4 - 1",
         "rival": "TROYANOS",
-        "rivalImg": "",
+        "rivalImg": "assets/img/logo_equipos/troyanos1.png",
         "lugar": "Centro Deportivo Municipal Moratalaz",
         "fecha": "15/12/24",
         "hora": "15:00"
@@ -78,7 +78,7 @@
         "goles": ["'17 JUAN", "'23 HECTOR", "'46 NACHO", "'55 MARTÍN"],
         "resultado": "4 - 1",
         "rival": "UD MADRILEÑO",
-        "rivalImg": "",
+        "rivalImg": "assets/img/logo_equipos/UDmadrileño.webp",
         "lugar": "Centro Deportivo Municipal Moratalaz",
         "fecha": "22/12/24",
         "hora": "16:10"
@@ -90,7 +90,7 @@
         "goles": [],
         "resultado": "0 - 6",
         "rival": "LAPONIA FC",
-        "rivalImg": "",
+        "rivalImg": "assets/img/logo_equipos/laponia.jpg",
         "lugar": "Centro Deportivo Municipal Moratalaz",
         "fecha": "12/1/25",
         "hora": "19:40"
@@ -102,7 +102,7 @@
         "goles": [],
         "resultado": "0 - 4",
         "rival": "JOYITAS DE CANILLAS",
-        "rivalImg": "",
+        "rivalImg": "assets/img/logo_equipos/joyitas.webp",
         "lugar": "Centro Deportivo Municipal Moratalaz",
         "fecha": "19/1/25",
         "hora": "16:15"
@@ -114,7 +114,7 @@
         "goles": ["'31 NACHO"],
         "resultado": "1 - 6",
         "rival": "PUÑETEROS",
-        "rivalImg": "",
+        "rivalImg": "assets/img/logo_equipos/puñeteros.webp",
         "lugar": "Centro Deportivo Municipal Moratalaz",
         "fecha": "26/1/25",
         "hora": "18:30"
@@ -150,7 +150,7 @@
         "goles": [],
         "resultado": "0 - 5",
         "rival": "RUINAS",
-        "rivalImg": "",
+        "rivalImg": "assets/img/logo_equipos/ruinas.jpg",
         "lugar": "Centro Deportivo Municipal Moratalaz",
         "fecha": "23/2/25",
         "hora": "19:40"
@@ -162,7 +162,7 @@
         "goles": ["'20 HECTOR", "'26 HECTOR", "'50+1 PIPO"],
         "resultado": "3 - 0",
         "rival": "SCHALKE 030",
-        "rivalImg": "",
+        "rivalImg": "assets/img/logo_equipos/shelke.jpg",
         "lugar": "Centro Deportivo Municipal Moratalaz",
         "fecha": "2/3/25",
         "hora": "16:10"
@@ -174,7 +174,7 @@
         "goles": [],
         "resultado": "0 - 7",
         "rival": "SEMPER CD",
-        "rivalImg": "",
+        "rivalImg": "assets/img/logo_equipos/semper.jpg",
         "lugar": "Centro Deportivo Municipal Moratalaz",
         "fecha": "9/3/25",
         "hora": "15:00"
@@ -186,7 +186,7 @@
         "goles": ["'29 DIEGO", "'45 JOSE"],
         "resultado": "2 - 3",
         "rival": "TROYANOS",
-        "rivalImg": "",
+        "rivalImg": "assets/img/logo_equipos/troyanos1.png",
         "lugar": "Centro Deportivo Municipal Moratalaz",
         "fecha": "30/3/25",
         "hora": "15:00"
@@ -198,7 +198,7 @@
         "goles": ["'15 NICO", "'27 HECTOR", "'32 NEIPAR", "'35 NEIPAR", "'39 LUCAS B"],
         "resultado": "5 - 0",
         "rival": "UD MADRILEÑO",
-        "rivalImg": "",
+        "rivalImg": "assets/img/logo_equipos/UDmadrileño.webp",
         "lugar": "Centro Deportivo Municipal Moratalaz",
         "fecha": "6/4/25",
         "hora": "16:10"
