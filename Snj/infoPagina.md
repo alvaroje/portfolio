@@ -27,3 +27,9 @@ La pagina tiene que tener una estética con el color verde: #68d791 jugando con 
 // Promt
 
 Estoy haciendo la página web de mi equipo de futbol y tengo una sección de jugadores donde saldremos cada uno con una carta en formato fifa, te voy a pasar dos imágenes (una es de la carta con una cara estándar y otra imagen que es la cara que quiero que aparezca en la carta) asique la imagen final será la carta con la cara de la otra imagen.
+
+// Implementación IA:
+
+Adaptar el formulario a unas pruebas para personas interesadas en acceder al equipo. Mediante los datos del formulario, pasarlos a la IA
+para que decida si es apto para entrar en el equipo y le de una nota de 0-10 (Suspenso o Aprobado). Aparte redactarle un correo con
+felicitaciones si ha pasado las pruebas teoricas y agendarle una pruba práctica para meterse en el equipo.
