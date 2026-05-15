@@ -126,6 +126,417 @@ main {
     color: #333;
 }
 
+/* ==============================================
+   ESTADÍSTICAS SNJ FC — estilos de sección
+   Paleta: negro #0d0d0d · dorado #FFD700 · rojo #c0392b
+   ============================================== */
+
+/* ── Variables de color ── */
+:root {
+  --snj-black:      #0d0d0d;
+  --snj-dark:       #141414;
+  --snj-panel:      #1a1a1a;
+  --snj-border:     #2a2a2a;
+  --snj-gold:       #68d791;/*--snj-gold:       #FFD700;*/
+  --snj-gold-dim:   #b89a00;
+  --snj-red:        #c0392b;
+  --snj-white:      #f0f0f0;
+  --snj-grey:       #888;
+  --snj-row-alt:    #1f1f1f;
+  --snj-row-hover:  #252525;
+  --snj-font:       'Bebas Neue', 'Impact', sans-serif;
+  --snj-body-font:  'Rajdhani', 'Segoe UI', sans-serif;
+}
+
+/* SECCIÓN CONTENEDOR*/
+.stats-section {
+  /*background: var(--snj-black);*/
+  padding: 4rem 2rem 5rem;
+  font-family: var(--snj-body-font);
+  color: var(--snj-white);
+}
+
+/* ============================================
+   CABECERA
+   ============================================ */
+.stats-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.stats-header__line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--snj-gold), transparent);
+  opacity: 0.6;
+}
+
+.stats-header__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  white-space: nowrap;
+  margin: 0;
+  line-height: 1;
+}
+
+.stats-header__title--accent {
+  font-family: var(--snj-font);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  letter-spacing: 0.15em;
+  color: var(--snj-gold);
+  text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+}
+
+.stats-header__title--season {
+  font-family: var(--snj-body-font);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: var(--snj-grey);
+  text-transform: uppercase;
+  margin-top: 0.2rem;
+}
+
+/* ============================================
+   TARJETAS LÍDERES
+   ============================================ */
+.stats-leaders {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.stats-leader-card {
+  background: var(--snj-panel);
+  border: 1px solid var(--snj-border);
+  border-top: 3px solid var(--snj-gold);
+  border-radius: 4px;
+  padding: 1.4rem 1rem;
+  text-align: center;
+  cursor: default;
+  transition: transform 0.25s ease, border-color 0.25s ease,
+              box-shadow 0.25s ease, background 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Brillo diagonal en hover */
+.stats-leader-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(255, 215, 0, 0.07) 60%, transparent 80%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.stats-leader-card:hover::before { opacity: 1; }
+
+.stats-leader-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--snj-gold);
+  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.2);
+  background: #1f1f1f;
+}
+
+.stats-leader-card__icon {
+  font-size: 1.8rem;
+  margin-bottom: 0.4rem;
+  filter: drop-shadow(0 0 8px rgba(255,215,0,0.5));
+}
+
+.stats-leader-card__label {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--snj-grey);
+  margin-bottom: 0.5rem;
+}
+
+.stats-leader-card__player {
+  font-family: var(--snj-font);
+  font-size: 1.3rem;
+  letter-spacing: 0.1em;
+  color: var(--snj-white);
+  margin-bottom: 0.3rem;
+}
+
+.stats-leader-card__value {
+  font-family: var(--snj-font);
+  font-size: 2.4rem;
+  color: var(--snj-gold);
+  line-height: 1;
+  text-shadow: 0 0 16px rgba(255, 215, 0, 0.5);
+}
+
+/* ============================================
+   CONTROLES (búsqueda + hint)
+   ============================================ */
+.stats-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+  max-width: 100%;
+}
+
+.stats-search {
+  position: relative;
+  width: 260px;
+}
+
+.stats-search__input {
+  width: 100%;
+  background: var(--snj-panel);
+  border: 1px solid var(--snj-border);
+  border-radius: 3px;
+  color: var(--snj-white);
+  font-family: var(--snj-body-font);
+  font-size: 0.9rem;
+  padding: 0.55rem 2.2rem 0.55rem 0.9rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stats-search__input::placeholder { color: var(--snj-grey); }
+
+.stats-search__input:focus {
+  border-color: var(--snj-gold);
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.15);
+}
+
+.stats-search__icon {
+  position: absolute;
+  right: 0.7rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.85rem;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.stats-sort-hint {
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  color: var(--snj-grey);
+  text-transform: uppercase;
+}
+
+/* ============================================
+   TABLA PRINCIPAL
+   ============================================ */
+.stats-table-wrapper {
+  overflow-x: auto;
+  border-radius: 4px;
+  border: 1px solid var(--snj-border);
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Barra de scroll personalizada */
+.stats-table-wrapper::-webkit-scrollbar { height: 5px; }
+.stats-table-wrapper::-webkit-scrollbar-track { background: var(--snj-dark); }
+.stats-table-wrapper::-webkit-scrollbar-thumb {
+  background: var(--snj-gold-dim);
+  border-radius: 3px;
+}
+
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92rem;
+  min-width: 650px;
+}
+
+/* ── Encabezado ── */
+.stats-table__th {
+  background: var(--snj-dark);
+  color: var(--snj-gold);
+  font-family: var(--snj-font);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-align: center;
+  padding: 0.9rem 0.8rem;
+  border-bottom: 2px solid var(--snj-gold);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.stats-table__th--player { text-align: left; padding-left: 1.2rem; }
+
+.stats-table__th.sortable {
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.stats-table__th.sortable:hover {
+  background: #202020;
+  color: #fff;
+}
+
+.th-icon { font-size: 0.8rem; }
+.sort-icon { opacity: 0.45; font-size: 0.7rem; margin-left: 0.15rem; }
+
+/* ── Filas ── */
+.stats-table__row {
+  border-bottom: 1px solid var(--snj-border);
+  transition: background 0.18s ease, transform 0.18s ease;
+}
+
+.stats-table__row:nth-child(even) { background: var(--snj-row-alt); }
+.stats-table__row:nth-child(odd)  { background: var(--snj-dark); }
+
+.stats-table__row:hover {
+  background: var(--snj-row-hover) !important;
+  transform: scaleX(1.005);
+  box-shadow: inset 3px 0 0 var(--snj-gold);
+}
+
+/* ── Celdas ── */
+.stats-table__td {
+  text-align: center;
+  padding: 0.7rem 0.8rem;
+  color: var(--snj-white);
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+/* Columna jugador */
+.stats-table__td--player {
+  text-align: left;
+  padding-left: 1.2rem;
+  font-family: var(--snj-body-font);
+  font-weight: 700;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  white-space: nowrap;
+}
+
+.player-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--snj-gold);
+  color: var(--snj-black);
+  font-family: var(--snj-font);
+  font-size: 0.7rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 2px;
+  flex-shrink: 0;
+  letter-spacing: 0;
+}
+
+/* Goles destacados */
+.stats-table__td--goals { color: #e0e0e0; }
+.stats-table__td--top {
+  color: var(--snj-gold) !important;
+  font-weight: 700;
+  text-shadow: 0 0 8px rgba(255,215,0,0.5);
+}
+
+/* G/A */
+.stats-table__td--ga { color: #aaa; font-size: 0.88rem; }
+
+/* Tarjetas amarillas */
+.stats-table__td--card { color: #f1c40f; }
+
+/* MVPs */
+.stats-table__td--mvp { color: #b0b0b0; }
+
+/* ── Hover en celda ── */
+.stats-table__row:hover .stats-table__td--player { color: var(--snj-gold); }
+
+/* ============================================
+   BADGES DE NOTA
+   ============================================ */
+.nota-badge {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.nota-badge--low   { background: #2c2c2c; color: #666; }
+.nota-badge--mid   { background: #1e2a1e; color: #7abf7a; }
+.nota-badge--good  { background: #1a2a1a; color: #5db85d; }
+.nota-badge--great { background: #1a3020; color: #2ecc71; }
+.nota-badge--elite {
+  background: linear-gradient(135deg, #1a2a0a, #2a3a10);
+  color: var(--snj-gold);
+  box-shadow: 0 0 8px rgba(255,215,0,0.25);
+}
+
+.stats-table__row:hover .nota-badge {
+  transform: scale(1.1);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+/* ============================================
+   LEYENDA
+   ============================================ */
+.stats-legend {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
+  padding: 0.8rem 1rem;
+  background: var(--snj-panel);
+  border: 1px solid var(--snj-border);
+  border-radius: 3px;
+}
+
+.stats-legend__label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--snj-grey);
+  margin-right: 0.4rem;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .stats-section { padding: 2.5rem 1rem 3rem; }
+
+  .stats-leaders {
+    grid-template-columns: 1fr;
+    max-width: 340px;
+  }
+
+  .stats-header { gap: 0.8rem; }
+  .stats-header__line { display: none; }
+  .stats-header__title--accent { font-size: 2rem; }
+
+  .stats-controls { flex-direction: column; align-items: flex-start; }
+  .stats-search { width: 100%; }
+
+  .stats-legend { gap: 0.5rem; }
+}
+
+@media (max-width: 480px) {
+  .stats-table { font-size: 0.8rem; }
+  .stats-table__th, .stats-table__td { padding: 0.55rem 0.5rem; }
+}
+
+
 footer {
     background-color: #68d791;
     color: white;

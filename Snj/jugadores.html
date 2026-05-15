@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jugadores SNJ FC</title>
     <link rel="stylesheet" href="assets/css/jugadores.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="header"></div>
@@ -55,9 +56,256 @@
             </div>
             <!-- Añade más jugadores aquí -->
         </section>
+        <section id="estadisticas" class="stats-section">
+
+            <!-- Cabecera de sección -->
+            <div class="stats-header">
+                <div class="stats-header__line"></div>
+                <h2 class="stats-header__title">
+                <span class="stats-header__title--accent">ESTADÍSTICAS</span>
+                <span class="stats-header__title--season">Temporada 2025–26</span>
+                </h2>
+                <div class="stats-header__line"></div>
+            </div>
+
+            <!-- Resumen de líderes (top 3 goles, asistencias, MVPs) -->
+            <div class="stats-leaders">
+                <div class="stats-leader-card" data-category="goles">
+                <div class="stats-leader-card__icon">⚽</div>
+                <div class="stats-leader-card__label">Máximo Goleador</div>
+                <div class="stats-leader-card__player">Nico 9</div>
+                <div class="stats-leader-card__value">8</div>
+                </div>
+                <div class="stats-leader-card" data-category="asistencias">
+                <div class="stats-leader-card__icon">🅰️</div>
+                <div class="stats-leader-card__label">Más Asistencias</div>
+                <div class="stats-leader-card__player">Héctor 10</div>
+                <div class="stats-leader-card__value">10</div>
+                </div>
+                <div class="stats-leader-card" data-category="mvp">
+                <div class="stats-leader-card__icon">🏆</div>
+                <div class="stats-leader-card__label">Más MVP</div>
+                <div class="stats-leader-card__player">Carrillo 20</div>
+                <div class="stats-leader-card__value">5</div>
+                </div>
+            </div>
+
+            <!-- Controles: filtro + ordenación -->
+            <div class="stats-controls">
+                <div class="stats-search">
+                <input
+                    type="text"
+                    id="stats-search-input"
+                    class="stats-search__input"
+                    placeholder="Buscar jugador…"
+                    oninput="filterStatsTable()"
+                />
+                <span class="stats-search__icon">🔍</span>
+                </div>
+                <div class="stats-sort-hint">↕ Haz clic en una columna para ordenar</div>
+            </div>
+
+            <!-- Tabla -->
+            <div class="stats-table-wrapper">
+                <table class="stats-table" id="stats-table">
+                <thead>
+                    <tr>
+                    <th class="stats-table__th stats-table__th--player sortable" onclick="sortTable(0)">
+                        Jugador <span class="sort-icon">⇅</span>
+                    </th>
+                    <th class="stats-table__th sortable" onclick="sortTable(1)">
+                        PJ <span class="sort-icon">⇅</span>
+                    </th>
+                    <th class="stats-table__th sortable" onclick="sortTable(2)">
+                        <span class="th-icon">⚽</span> Goles <span class="sort-icon">⇅</span>
+                    </th>
+                    <th class="stats-table__th sortable" onclick="sortTable(3)">
+                        <span class="th-icon">🅰️</span> Asist <span class="sort-icon">⇅</span>
+                    </th>
+                    <th class="stats-table__th sortable" onclick="sortTable(4)">
+                        G/A <span class="sort-icon">⇅</span>
+                    </th>
+                    <th class="stats-table__th sortable" onclick="sortTable(5)">
+                        <span class="th-icon">🟨</span> T <span class="sort-icon">⇅</span>
+                    </th>
+                    <th class="stats-table__th sortable" onclick="sortTable(6)">
+                        <span class="th-icon">🏆</span> MVP <span class="sort-icon">⇅</span>
+                    </th>
+                    <th class="stats-table__th sortable" onclick="sortTable(7)">
+                        Nota <span class="sort-icon">⇅</span>
+                    </th>
+                    </tr>
+                </thead>
+                <tbody id="stats-tbody">
+                    <tr class="stats-table__row" data-player="luis 13">
+                    <td class="stats-table__td stats-table__td--player"><span class="player-num">13</span> Luis</td>
+                    <td class="stats-table__td">18</td>
+                    <td class="stats-table__td stats-table__td--goals">1</td>
+                    <td class="stats-table__td">2</td>
+                    <td class="stats-table__td stats-table__td--ga">3</td>
+                    <td class="stats-table__td">0</td>
+                    <td class="stats-table__td stats-table__td--mvp">2</td>
+                    <td class="stats-table__td"><span class="nota-badge nota-badge--good">6.80</span></td>
+                    </tr>
+                    <tr class="stats-table__row" data-player="rober 3">
+                    <td class="stats-table__td stats-table__td--player"><span class="player-num">3</span> Rober</td>
+                    <td class="stats-table__td">14</td>
+                    <td class="stats-table__td stats-table__td--goals">0</td>
+                    <td class="stats-table__td">0</td>
+                    <td class="stats-table__td stats-table__td--ga">0</td>
+                    <td class="stats-table__td">0</td>
+                    <td class="stats-table__td stats-table__td--mvp">0</td>
+                    <td class="stats-table__td"><span class="nota-badge nota-badge--good">5</span></td>
+                    </tr>
+                    <tr class="stats-table__row" data-player="neipar 5">
+                    <td class="stats-table__td stats-table__td--player"><span class="player-num">5</span> Neipar</td>
+                    <td class="stats-table__td">20</td>
+                    <td class="stats-table__td stats-table__td--goals">1</td>
+                    <td class="stats-table__td">0</td>
+                    <td class="stats-table__td stats-table__td--ga">1</td>
+                    <td class="stats-table__td">0</td>
+                    <td class="stats-table__td stats-table__td--mvp">1</td>
+                    <td class="stats-table__td"><span class="nota-badge nota-badge--mid">5.37</span></td>
+                    </tr>
+                    <tr class="stats-table__row" data-player="doso 7">
+                    <td class="stats-table__td stats-table__td--player"><span class="player-num">7</span> Doso</td>
+                    <td class="stats-table__td">17</td>
+                    <td class="stats-table__td stats-table__td--goals">2</td>
+                    <td class="stats-table__td">6</td>
+                    <td class="stats-table__td stats-table__td--ga">8</td>
+                    <td class="stats-table__td">0</td>
+                    <td class="stats-table__td stats-table__td--mvp">1</td>
+                    <td class="stats-table__td"><span class="nota-badge nota-badge--good">6.99</span></td>
+                    </tr>
+                    <tr class="stats-table__row" data-player="guille pk 8">
+                    <td class="stats-table__td stats-table__td--player"><span class="player-num">8</span> Guille PK</td>
+                    <td class="stats-table__td">10</td>
+                    <td class="stats-table__td stats-table__td--goals">1</td>
+                    <td class="stats-table__td">1</td>
+                    <td class="stats-table__td stats-table__td--ga">2</td>
+                    <td class="stats-table__td">0</td>
+                    <td class="stats-table__td stats-table__td--mvp">0</td>
+                    <td class="stats-table__td"><span class="nota-badge nota-badge--mid">6.34</span></td>
+                    </tr>
+                    <tr class="stats-table__row" data-player="nico 9">
+                    <td class="stats-table__td stats-table__td--player"><span class="player-num">9</span> Nico</td>
+                    <td class="stats-table__td">11</td>
+                    <td class="stats-table__td stats-table__td--goals stats-table__td--top">8</td>
+                    <td class="stats-table__td">3</td>
+                    <td class="stats-table__td stats-table__td--ga">11</td>
+                    <td class="stats-table__td">0</td>
+                    <td class="stats-table__td stats-table__td--mvp">3</td>
+                    <td class="stats-table__td"><span class="nota-badge nota-badge--great">7.29</span></td>
+                    </tr>
+                    <tr class="stats-table__row" data-player="héctor 10">
+                    <td class="stats-table__td stats-table__td--player"><span class="player-num">10</span> Héctor</td>
+                    <td class="stats-table__td">21</td>
+                    <td class="stats-table__td stats-table__td--goals">6</td>
+                    <td class="stats-table__td stats-table__td--top">10</td>
+                    <td class="stats-table__td stats-table__td--ga">16</td>
+                    <td class="stats-table__td">0</td>
+                    <td class="stats-table__td stats-table__td--mvp">2</td>
+                    <td class="stats-table__td"><span class="nota-badge nota-badge--elite">8.52</span></td>
+                    </tr>
+                    <tr class="stats-table__row" data-player="josé 14">
+                    <td class="stats-table__td stats-table__td--player"><span class="player-num">14</span> José</td>
+                    <td class="stats-table__td">11</td>
+                    <td class="stats-table__td stats-table__td--goals">1</td>
+                    <td class="stats-table__td">0</td>
+                    <td class="stats-table__td stats-table__td--ga">1</td>
+                    <td class="stats-table__td stats-table__td--card">1</td>
+                    <td class="stats-table__td stats-table__td--mvp">0</td>
+                    <td class="stats-table__td"><span class="nota-badge nota-badge--good">6.68</span></td>
+                    </tr>
+                    <tr class="stats-table__row" data-player="pipo 15">
+                    <td class="stats-table__td stats-table__td--player"><span class="player-num">15</span> Pipo</td>
+                    <td class="stats-table__td">10</td>
+                    <td class="stats-table__td stats-table__td--goals">1</td>
+                    <td class="stats-table__td">1</td>
+                    <td class="stats-table__td stats-table__td--ga">2</td>
+                    <td class="stats-table__td">0</td>
+                    <td class="stats-table__td stats-table__td--mvp">0</td>
+                    <td class="stats-table__td"><span class="nota-badge nota-badge--good">6.67</span></td>
+                    </tr>
+                    <tr class="stats-table__row" data-player="jete 18">
+                    <td class="stats-table__td stats-table__td--player"><span class="player-num">18</span> Jete</td>
+                    <td class="stats-table__td">15</td>
+                    <td class="stats-table__td stats-table__td--goals">6</td>
+                    <td class="stats-table__td">4</td>
+                    <td class="stats-table__td stats-table__td--ga">10</td>
+                    <td class="stats-table__td">0</td>
+                    <td class="stats-table__td stats-table__td--mvp">3</td>
+                    <td class="stats-table__td"><span class="nota-badge nota-badge--elite">7.97</span></td>
+                    </tr>
+                    <tr class="stats-table__row" data-player="carrillo 20">
+                    <td class="stats-table__td stats-table__td--player"><span class="player-num">20</span> Carrillo</td>
+                    <td class="stats-table__td">20</td>
+                    <td class="stats-table__td stats-table__td--goals">2</td>
+                    <td class="stats-table__td">3</td>
+                    <td class="stats-table__td stats-table__td--ga">5</td>
+                    <td class="stats-table__td stats-table__td--card">2</td>
+                    <td class="stats-table__td stats-table__td--mvp stats-table__td--top">5</td>
+                    <td class="stats-table__td"><span class="nota-badge nota-badge--great">7.76</span></td>
+                    </tr>
+                    <tr class="stats-table__row" data-player="santi 24">
+                    <td class="stats-table__td stats-table__td--player"><span class="player-num">24</span> Santi</td>
+                    <td class="stats-table__td">18</td>
+                    <td class="stats-table__td stats-table__td--goals">1</td>
+                    <td class="stats-table__td">3</td>
+                    <td class="stats-table__td stats-table__td--ga">0</td>
+                    <td class="stats-table__td stats-table__td--card">3</td>
+                    <td class="stats-table__td stats-table__td--mvp">2</td>
+                    <td class="stats-table__td"><span class="nota-badge nota-badge--great">7.32</span></td>
+                    </tr>
+                    <tr class="stats-table__row" data-player="lucas 30">
+                    <td class="stats-table__td stats-table__td--player"><span class="player-num">30</span> Lucas</td>
+                    <td class="stats-table__td">16</td>
+                    <td class="stats-table__td stats-table__td--goals">1</td>
+                    <td class="stats-table__td">1</td>
+                    <td class="stats-table__td stats-table__td--ga">2</td>
+                    <td class="stats-table__td">0</td>
+                    <td class="stats-table__td stats-table__td--mvp">0</td>
+                    <td class="stats-table__td"><span class="nota-badge nota-badge--mid">6.27</span></td>
+                    </tr>
+                    <tr class="stats-table__row" data-player="lucas jr 33">
+                    <td class="stats-table__td stats-table__td--player"><span class="player-num">33</span> Lucas Jr</td>
+                    <td class="stats-table__td">16</td>
+                    <td class="stats-table__td stats-table__td--goals">4</td>
+                    <td class="stats-table__td">2</td>
+                    <td class="stats-table__td stats-table__td--ga">6</td>
+                    <td class="stats-table__td">0</td>
+                    <td class="stats-table__td stats-table__td--mvp">0</td>
+                    <td class="stats-table__td"><span class="nota-badge nota-badge--mid">6.48</span></td>
+                    </tr>
+                    <tr class="stats-table__row" data-player="marcos 34">
+                    <td class="stats-table__td stats-table__td--player"><span class="player-num">34</span> Marcos</td>
+                    <td class="stats-table__td">7</td>
+                    <td class="stats-table__td stats-table__td--goals">2</td>
+                    <td class="stats-table__td">0</td>
+                    <td class="stats-table__td stats-table__td--ga">2</td>
+                    <td class="stats-table__td stats-table__td--card">2</td>
+                    <td class="stats-table__td stats-table__td--mvp">2</td>
+                    <td class="stats-table__td"><span class="nota-badge nota-badge--great">8.13</span></td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+
+            <!-- Leyenda de notas -->
+            <div class="stats-legend">
+                <span class="stats-legend__label">Nota media (4 scouts):</span>
+                <span class="nota-badge nota-badge--low">— Sin datos</span>
+                <span class="nota-badge nota-badge--mid">&lt; 6.5</span>
+                <span class="nota-badge nota-badge--good">6.5 – 7.0</span>
+                <span class="nota-badge nota-badge--great">7.0 – 7.9</span>
+                <span class="nota-badge nota-badge--elite">≥ 8.0</span>
+            </div>
+
+        </section>
     </main>
     <footer>
-        &copy; 2025 Equipo de Fútbol. Todos los derechos reservados.
+        &copy; 2026 Equipo de Fútbol. Todos los derechos reservados.
     </footer>
+    <script src="assets/js/jugadores.js"></script>
 </body>
 </html>

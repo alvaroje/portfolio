@@ -64,6 +64,8 @@ main {
 }
 
 .carta-partido {
+  position: relative;
+  overflow: hidden;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -74,6 +76,26 @@ main {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 15px 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carta-partido::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, transparent 40%, rgba(0, 255, 21, 0.2) 80%, transparent 20%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.carta-partido:hover::before {
+  opacity: 1;
+}
+
+.carta-partido > * {
+  position: relative;
+  z-index: 1;
 }
 
 .carta-partido:hover {
