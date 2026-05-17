@@ -286,13 +286,14 @@ main {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-bottom: 1.2rem;
-  max-width: 100%;
+  margin: 0 auto 1.2rem;
+  max-width: 920px;
+  width: calc(100% - 2rem);
 }
 
 .stats-search {
   position: relative;
-  width: 260px;
+  width: 320px;
 }
 
 .stats-search__input {
@@ -340,6 +341,9 @@ main {
   border-radius: 4px;
   border: 1px solid var(--snj-border);
   box-shadow: 0 4px 40px rgba(0, 0, 0, 0.6);
+  max-width: 960px;
+  width: calc(100% - 2rem);
+  margin: 0 auto;
 }
 
 /* Barra de scroll personalizada */
@@ -371,7 +375,11 @@ main {
   user-select: none;
 }
 
-.stats-table__th--player { text-align: left; padding-left: 1.2rem; }
+.stats-table__th--player {
+  text-align: left;
+  padding-left: 0.9rem;
+  width: 220px;
+}
 
 .stats-table__th.sortable {
   cursor: pointer;
@@ -484,30 +492,6 @@ main {
 .stats-table__row:hover .nota-badge {
   transform: scale(1.1);
   box-shadow: 0 2px 10px rgba(0,0,0,0.4);
-}
-
-/* ============================================
-   LEYENDA
-   ============================================ */
-.stats-legend {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  margin-top: 1.2rem;
-  padding: 0.8rem 1rem;
-  background: var(--snj-panel);
-  border: 1px solid var(--snj-border);
-  border-radius: 3px;
-}
-
-.stats-legend__label {
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--snj-grey);
-  margin-right: 0.4rem;
 }
 
 /* ============================================
