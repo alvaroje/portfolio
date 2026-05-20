@@ -19,6 +19,413 @@ main {
   background-size: cover;
 }
 
+/* ====================================================
+   VESTUARIO INTERACTIVO — SNJ FC
+   ==================================================== */
+
+/* ── Variables ── */
+:root {
+  --snj-green:       #68d791;
+  --snj-green-dark:  #3aa862;
+  --snj-green-glow:  rgba(104, 215, 145, 0.55);
+  --snj-black:       #0a0a0a;
+  --snj-white:       #f5f5f5;
+  --snj-grey:        #888;
+  --snj-gold:        #FFD700;
+  --snj-font-title:  'Bebas Neue', 'Impact', sans-serif;
+  --snj-font-body:   'Rajdhani', 'Segoe UI', sans-serif;
+
+  /* Distribución de los 13 casilleros.
+     La imagen tiene los nombres en arco curvo.
+     Dividimos el ancho útil (~2%–98%) en 13 posiciones
+     con la fórmula: left = 2% + (i-1) * (96% / 12)
+     El resultado son saltos de 8% entre centros.
+     La camiseta mide ~7% del ancho del stage (width).
+     Ajuste fino por la curvatura: los extremos suben
+     ligeramente (–2%) y el centro baja (+1%). */
+}
+
+/* ============================================
+   CABECERA
+   ============================================ */
+.vestuario-section {
+  background: var(--snj-black);
+  padding: 3rem 2rem 2rem;
+  font-family: var(--snj-font-body);
+}
+
+.vestuario-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.vestuario-header__line {
+  flex: 1;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--snj-green), transparent);
+  opacity: 0.7;
+}
+
+.vestuario-header__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.vestuario-header__title--accent {
+  font-family: var(--snj-font-title);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  letter-spacing: 0.15em;
+  color: var(--snj-green);
+  text-shadow: 0 0 20px var(--snj-green-glow);
+}
+
+.vestuario-header__title--season {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--snj-grey);
+  text-transform: uppercase;
+  margin-top: 0.2rem;
+}
+
+/* ============================================
+   ESCENARIO PRINCIPAL
+   ============================================ */
+.vestuario-stage {
+  position: relative;
+  width: 100%;
+  /* Mantiene relación de aspecto 16:9 de la imagen */
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.9), 0 0 120px rgba(104, 215, 145, 0.08);
+  cursor: none; /* El spotlight reemplaza al cursor */
+}
+
+.vestuario-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  user-select: none;
+  pointer-events: none;
+  /* Sutil viñeta para profundidad */
+  filter: brightness(0.92) contrast(1.05);
+  transition: filter 0.4s ease;
+}
+
+/* Cuando hay hover en el stage, el fondo se oscurece
+   ligeramente para que las camisetas destaquen más */
+.vestuario-stage:hover .vestuario-bg {
+  filter: brightness(0.72) contrast(1.1);
+}
+
+/* ============================================
+   SPOTLIGHT QUE SIGUE AL CURSOR
+   ============================================ */
+.vestuario-spotlight {
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(104,215,145,0.12) 0%, transparent 70%);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  z-index: 5;
+}
+
+.vestuario-stage:hover .vestuario-spotlight {
+  opacity: 1;
+}
+
+/* ============================================
+   SLOT DE CAMISETA (contenedor posicionado)
+
+   Estrategia matemática de posicionamiento:
+   ─────────────────────────────────────────
+   Ancho útil:   la imagen empieza con el primer
+   casillero a ~2% del borde izq y termina a ~98%.
+   Paso entre centros de casillero:
+     gap = (98% - 2%) / 12 = 8%
+
+   Posición horizontal de cada casillero n (1–13):
+     left_n = 2% + (n-1) × 8%  →  después se resta
+              la mitad del ancho del .shirt-slot (3.5%)
+              para centrar: left_n = -1.5% + (n-1)×8%
+
+   Corrección vertical por arco curvo:
+   Los casilleros en los extremos están visualmente
+   más altos que los del centro. Se aplica un top
+   ligeramente menor (–1.5%) en los extremos y mayor
+   en el centro (+1%). Rango vertical: 16% – 19%.
+
+   Ancho del .shirt-slot: 7% del stage (≈ 1 casillero).
+   La camiseta PNG dentro ocupa el 85% del slot.
+   ============================================ */
+.shirt-slot {
+  position: absolute;
+  width: 7%;
+  /* altura auto: la imagen conserva su proporción */
+  z-index: 10;
+  cursor: pointer;
+  /* Oculto en carga → aparece con animación escalonada */
+  opacity: 0;
+  animation: shirtDrop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Posiciones individuales de los 13 casilleros.
+   Fórmula base: left = -1.5% + (n-1)*8%
+   top (corrección de arco):
+     extremos (1,13): ~16.5%
+     cuartos (4,10):  ~17.5%
+     centro  (7):     ~18.5%                    */
+
+#slot-1  { left: 0.5%; top: 27.5%; animation-delay: 0.05s; }
+#slot-2  { left:  8.4%; top: 27.8%; animation-delay: 0.10s; }
+#slot-3  { left: 15.85%; top: 28.3%; animation-delay: 0.15s; }
+#slot-4  { left: 22.8%; top: 28.8%; animation-delay: 0.20s; }
+#slot-5  { left: 29.7%; top: 29.0%; animation-delay: 0.25s; }
+#slot-6  { left: 36.6%; top: 29.2%; animation-delay: 0.30s; }
+#slot-7  { left: 43.7%; top: 29.3%; animation-delay: 0.35s; }
+#slot-8  { left: 51.5%; top: 29.2%; animation-delay: 0.40s; }
+#slot-9  { left: 58.5%; top: 29.0%; animation-delay: 0.45s; }
+#slot-10 { left: 65.7%; top: 28.8%; animation-delay: 0.50s; }
+#slot-11 { left: 73.4%; top: 28.3%; animation-delay: 0.55s; }
+#slot-12 { left: 81.2%; top: 27.8%; animation-delay: 0.60s; }
+#slot-13 { left: 89.9%; top: 27.5%; animation-delay: 0.65s; }
+
+/* ── Animación de entrada: caída desde arriba ── */
+@keyframes shirtDrop {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) rotate(-3deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+/* ============================================
+   ENVOLTORIO INTERNO + PERCHA
+   ============================================ */
+.shirt-wrap {
+  position: relative;
+  width: 100%;
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    filter    0.35s ease;
+  transform-origin: top center; /* gira desde la percha */
+}
+
+.shirt-img {
+  display: block;
+  width: 110%;
+  height: auto;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+  transition: filter 0.35s ease;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ============================================
+   EFECTO GLOW (capa radial detrás)
+   ============================================ */
+.shirt-glow {
+  position: absolute;
+  inset: -20% -30%;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    var(--snj-green-glow) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  transform: scale(0.6);
+  pointer-events: none;
+}
+
+/* ============================================
+   TOOLTIP DE INFORMACIÓN
+   ============================================ */
+.shirt-tooltip {
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: rgba(10, 10, 10, 0.92);
+  border: 1px solid var(--snj-green);
+  border-radius: 6px;
+  padding: 0.5rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  z-index: 30;
+  box-shadow: 0 0 20px var(--snj-green-glow);
+  /* triángulo inferior */
+}
+
+.shirt-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: var(--snj-green);
+}
+
+.shirt-tooltip__name {
+  font-family: var(--snj-font-title);
+  font-size: clamp(0.55rem, 1.2vw, 0.9rem);
+  letter-spacing: 0.1em;
+  color: var(--snj-white);
+}
+
+.shirt-tooltip__num {
+  font-family: var(--snj-font-title);
+  font-size: clamp(1rem, 2.2vw, 1.6rem);
+  color: var(--snj-green);
+  line-height: 1;
+  text-shadow: 0 0 12px var(--snj-green-glow);
+}
+
+.shirt-tooltip__kit {
+  font-size: clamp(0.45rem, 0.9vw, 0.65rem);
+  color: var(--snj-grey);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.shirt-tooltip__price {
+  font-family: var(--snj-font-title);
+  font-size: clamp(0.7rem, 1.4vw, 1rem);
+  color: var(--snj-gold);
+  letter-spacing: 0.08em;
+}
+
+/* ============================================
+   ESTADOS DE HOVER
+   ============================================ */
+
+/* Al hacer hover sobre el slot:
+   1. La camiseta se eleva y balancea levemente
+   2. Aparece el glow verde
+   3. Aparece el tooltip
+   4. La percha brilla
+   5. La sombra se intensifica
+*/
+.shirt-slot:hover .shirt-wrap {
+  transform: translateY(-12%) rotate(-4deg) scale(1.15);
+  filter: brightness(1.15);
+}
+
+.shirt-slot:hover .shirt-img {
+  filter:
+    drop-shadow(0 0 14px var(--snj-green))
+    drop-shadow(0 6px 18px rgba(0,0,0,0.7))
+    brightness(1.12);
+  animation: shirtSwing 1.2s ease-in-out infinite;
+}
+
+.shirt-slot:hover .shirt-hanger {
+  background: linear-gradient(to bottom, var(--snj-green), var(--snj-green-dark));
+}
+
+.shirt-slot:hover .shirt-hanger::before {
+  background: var(--snj-green);
+  box-shadow: 0 0 6px var(--snj-green-glow);
+}
+
+.shirt-slot:hover .shirt-glow {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.shirt-slot:hover .shirt-tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ── Balanceo suave como si colgara ── */
+@keyframes shirtSwing {
+  0%   { transform: none; }
+  20%  { filter:
+           drop-shadow(0 0 18px var(--snj-green))
+           drop-shadow(0 6px 18px rgba(0,0,0,0.7))
+           brightness(1.15); }
+  40%  { filter:
+           drop-shadow(0 0 10px var(--snj-green))
+           drop-shadow(0 6px 18px rgba(0,0,0,0.7))
+           brightness(1.1); }
+  100% { filter:
+           drop-shadow(0 0 14px var(--snj-green))
+           drop-shadow(0 6px 18px rgba(0,0,0,0.7))
+           brightness(1.12); }
+}
+
+/* Efecto "fade-dim" en los otros slots cuando
+   uno está en hover (via JS añade clase .is-active al stage) */
+.vestuario-stage.has-hover .shirt-slot:not(:hover) {
+  opacity: 0.35;
+  filter: saturate(0.3) brightness(0.6);
+  transition: opacity 0.35s ease, filter 0.35s ease;
+}
+
+.vestuario-stage.has-hover .shirt-slot:hover {
+  opacity: 1;
+  filter: none;
+  z-index: 20;
+}
+
+@keyframes hintPulse {
+  0%, 100% { opacity: 0.5; }
+  50%       { opacity: 1; }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+/* En móvil el cursor es el dedo, no mostramos
+   spotlight y ajustamos tooltip size */
+@media (max-width: 768px) {
+  .vestuario-stage { cursor: default; }
+  .vestuario-spotlight { display: none; }
+
+  /* Los tooltips aparecen al hacer tap (JS toggles .touched) */
+  .shirt-tooltip {
+    font-size: 0.7rem;
+  }
+
+  /* Reducimos swing en móvil para no saturar */
+  .shirt-slot:hover .shirt-wrap {
+    transform: translateY(-8%) scale(1.12);
+  }
+}
+
+@media (max-width: 480px) {
+  .vestuario-header__line { display: none; }
+  .vestuario-section { padding: 2rem 0.5rem 1rem; }
+}
+
 footer {
   background-color: #68d791;
   color: white;

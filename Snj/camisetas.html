@@ -4,16 +4,268 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/camisetas.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
     <title>Camisetas SNJ FC</title>
 </head>
 <body>
     <div id="header"></div>
     <script src="assets/js/header.js"></script>
     <main>
+        <!-- ================================================
+     SECCIÓN: VESTUARIO INTERACTIVO — SNJ FC
+     Insertar dentro de camisetas.html, en <main>
+     ================================================ -->
+        <section class="vestuario-section" id="vestuario">
 
+            <!-- Cabecera decorativa -->
+            <div class="vestuario-header">
+                <div class="vestuario-header__line"></div>
+                <h2 class="vestuario-header__title">
+                <span class="vestuario-header__title--accent">EQUIPACIONES</span>
+                <span class="vestuario-header__title--season">Temporada 2025 – 26</span>
+                </h2>
+                <div class="vestuario-header__line"></div>
+            </div>
+
+            <!-- Escenario del vestuario -->
+            <div class="vestuario-stage" id="vestuarioStage">
+
+                <!-- Imagen de fondo del vestuario vacío -->
+                <img
+                src="assets/img/vestuarioSinCamisetas.webp"
+                alt="Vestuario SNJ FC"
+                class="vestuario-bg"
+                draggable="false"
+                >
+
+                <!--
+                13 camisetas posicionadas con porcentajes.
+                Cada .shirt-slot ocupa un casillero diferente.
+                El atributo data-player, data-number y data-price
+                alimentan el tooltip interactivo.
+
+                Orden (izq → der):
+                1  ALVAROJE   – #11 · 1ª
+                2  BARQUEÑO   – #3  · 1ª
+                3  GONZALEZ   – #9  · 1ª
+                4  NEIPAR     – #5  · 1ª
+                5  DOSO       – #7  · 1ª
+                6  GUILLE     – #8  · 1ª
+                7  LUQUI JR   – #33 · 1ª
+                8  CHAU       – #20 · 1ª
+                9  FERRER     – #10 · 1ª
+                10 DEL CASTILLO – #24 · 1ª
+                11 PELUCAS    – #30 · 1ª
+                12 PRADA      – #14 · 1ª
+                13 CARRILLO   – #20 · 2ª
+                -->
+
+                <!-- 1 ALVAROJE -->
+                <div class="shirt-slot" id="slot-1"
+                    data-player="Alvaroje" data-number="18" data-price="35€" data-kit="1ª Equipación">
+                <div class="shirt-wrap">
+                    <img src="assets/img/camisetasTrans/camiAlvaroTrans.png" alt="Camiseta Alvaroje #18" class="shirt-img">
+                </div>
+                <div class="shirt-tooltip">
+                    <span class="shirt-tooltip__name">Alvaroje</span>
+                    <span class="shirt-tooltip__num">#18</span>
+                    <span class="shirt-tooltip__kit">1ª Equipación</span>
+                    <span class="shirt-tooltip__price">35€</span>
+                </div>
+                <div class="shirt-glow"></div>
+                </div>
+
+                <!-- 2 BARQUEÑO -->
+                <div class="shirt-slot" id="slot-2"
+                    data-player="Barqueño" data-number="3" data-price="35€" data-kit="1ª Equipación">
+                <div class="shirt-wrap">
+                    <img src="assets/img/camisetasTrans/camiLuisTrans.png" alt="Camiseta Barqueño #3" class="shirt-img">
+                </div>
+                <div class="shirt-tooltip">
+                    <span class="shirt-tooltip__name">Bargueño</span>
+                    <span class="shirt-tooltip__num">#13</span>
+                    <span class="shirt-tooltip__kit">1ª Equipación</span>
+                    <span class="shirt-tooltip__price">35€</span>
+                </div>
+                <div class="shirt-glow"></div>
+                </div>
+
+                <!-- 3 GONZALEZ -->
+                <div class="shirt-slot" id="slot-3"
+                    data-player="González" data-number="3" data-price="35€" data-kit="1ª Equipación">
+                <div class="shirt-wrap">
+                    <img src="assets/img/camisetasTrans/camiRoberTrans.png" alt="Camiseta González #9" class="shirt-img">
+                </div>
+                <div class="shirt-tooltip">
+                    <span class="shirt-tooltip__name">González</span>
+                    <span class="shirt-tooltip__num">#3</span>
+                    <span class="shirt-tooltip__kit">1ª Equipación</span>
+                    <span class="shirt-tooltip__price">35€</span>
+                </div>
+                <div class="shirt-glow"></div>
+                </div>
+
+                <!-- 4 NEIPAR -->
+                <div class="shirt-slot" id="slot-4"
+                    data-player="Neipar" data-number="5" data-price="35€" data-kit="1ª Equipación">
+                <div class="shirt-wrap">
+                    <img src="assets/img/camisetasTrans/camiNeiparTrans.png" alt="Camiseta Neipar #5" class="shirt-img">
+                </div>
+                <div class="shirt-tooltip">
+                    <span class="shirt-tooltip__name">Neipar</span>
+                    <span class="shirt-tooltip__num">#5</span>
+                    <span class="shirt-tooltip__kit">1ª Equipación</span>
+                    <span class="shirt-tooltip__price">35€</span>
+                </div>
+                <div class="shirt-glow"></div>
+                </div>
+
+                <!-- 5 DOSO -->
+                <div class="shirt-slot" id="slot-5"
+                    data-player="Doso" data-number="7" data-price="35€" data-kit="1ª Equipación">
+                <div class="shirt-wrap">
+                    <img src="assets/img/camisetasTrans/camiDosoTrans.png" alt="Camiseta Doso #7" class="shirt-img">
+                </div>
+                <div class="shirt-tooltip">
+                    <span class="shirt-tooltip__name">Doso</span>
+                    <span class="shirt-tooltip__num">#7</span>
+                    <span class="shirt-tooltip__kit">1ª Equipación</span>
+                    <span class="shirt-tooltip__price">35€</span>
+                </div>
+                <div class="shirt-glow"></div>
+                </div>
+
+                <!-- 6 GUILLE -->
+                <div class="shirt-slot" id="slot-6"
+                    data-player="Guille" data-number="8" data-price="35€" data-kit="1ª Equipación">
+                <div class="shirt-wrap">
+                    <img src="assets/img/camisetasTrans/camiGuilleTrans.png" alt="Camiseta Guille #8" class="shirt-img">
+                </div>
+                <div class="shirt-tooltip">
+                    <span class="shirt-tooltip__name">Guille</span>
+                    <span class="shirt-tooltip__num">#8</span>
+                    <span class="shirt-tooltip__kit">1ª Equipación</span>
+                    <span class="shirt-tooltip__price">35€</span>
+                </div>
+                <div class="shirt-glow"></div>
+                </div>
+
+                <!-- 7 LUQUI JR -->
+                <div class="shirt-slot" id="slot-7"
+                    data-player="Luqui Jr" data-number="33" data-price="35€" data-kit="1ª Equipación">
+                <div class="shirt-wrap">
+                    <img src="assets/img/camisetasTrans/camiLuquiJrTrans.png" alt="Camiseta Luqui Jr #33" class="shirt-img">
+                </div>
+                <div class="shirt-tooltip">
+                    <span class="shirt-tooltip__name">Luqui Jr</span>
+                    <span class="shirt-tooltip__num">#33</span>
+                    <span class="shirt-tooltip__kit">1ª Equipación</span>
+                    <span class="shirt-tooltip__price">35€</span>
+                </div>
+                <div class="shirt-glow"></div>
+                </div>
+
+                <!-- 8 CHAU -->
+                <div class="shirt-slot" id="slot-8"
+                    data-player="Chau" data-number="20" data-price="35€" data-kit="1ª Equipación">
+                <div class="shirt-wrap">
+                    <img src="assets/img/camisetasTrans/camiNicoTrans.png" alt="Camiseta Chau #20" class="shirt-img">
+                </div>
+                <div class="shirt-tooltip">
+                    <span class="shirt-tooltip__name">Chau</span>
+                    <span class="shirt-tooltip__num">#9</span>
+                    <span class="shirt-tooltip__kit">1ª Equipación</span>
+                    <span class="shirt-tooltip__price">35€</span>
+                </div>
+                <div class="shirt-glow"></div>
+                </div>
+
+                <!-- 9 FERRER -->
+                <div class="shirt-slot" id="slot-9"
+                    data-player="Ferrer" data-number="10" data-price="35€" data-kit="1ª Equipación">
+                <div class="shirt-wrap">
+                    <img src="assets/img/camisetasTrans/camiHectorTrans.png" alt="Camiseta Ferrer #10" class="shirt-img">
+                </div>
+                <div class="shirt-tooltip">
+                    <span class="shirt-tooltip__name">Ferrer</span>
+                    <span class="shirt-tooltip__num">#10</span>
+                    <span class="shirt-tooltip__kit">1ª Equipación</span>
+                    <span class="shirt-tooltip__price">35€</span>
+                </div>
+                <div class="shirt-glow"></div>
+                </div>
+
+                <!-- 10 DEL CASTILLO -->
+                <div class="shirt-slot" id="slot-10"
+                    data-player="Del Castillo" data-number="24" data-price="35€" data-kit="1ª Equipación">
+                <div class="shirt-wrap">
+                    <img src="assets/img/camisetasTrans/camiJoseTrans.png" alt="Camiseta Del Castillo #24" class="shirt-img">
+                </div>
+                <div class="shirt-tooltip">
+                    <span class="shirt-tooltip__name">Del Castillo</span>
+                    <span class="shirt-tooltip__num">#14</span>
+                    <span class="shirt-tooltip__kit">1ª Equipación</span>
+                    <span class="shirt-tooltip__price">35€</span>
+                </div>
+                <div class="shirt-glow"></div>
+                </div>
+
+                <!-- 11 PELUCAS -->
+                <div class="shirt-slot" id="slot-11"
+                    data-player="Pelucas" data-number="30" data-price="35€" data-kit="1ª Equipación">
+                <div class="shirt-wrap">
+                    <img src="assets/img/camisetasTrans/camiLucasTrans.png" alt="Camiseta Pelucas #30" class="shirt-img">
+                </div>
+                <div class="shirt-tooltip">
+                    <span class="shirt-tooltip__name">Pelucas</span>
+                    <span class="shirt-tooltip__num">#30</span>
+                    <span class="shirt-tooltip__kit">1ª Equipación</span>
+                    <span class="shirt-tooltip__price">35€</span>
+                </div>
+                <div class="shirt-glow"></div>
+                </div>
+
+                <!-- 12 PRADA -->
+                <div class="shirt-slot" id="slot-12"
+                    data-player="Prada" data-number="14" data-price="35€" data-kit="1ª Equipación">
+                <div class="shirt-wrap">
+                    <img src="assets/img/camisetasTrans/camiSantiTrans.png" alt="Camiseta Prada #14" class="shirt-img">
+                </div>
+                <div class="shirt-tooltip">
+                    <span class="shirt-tooltip__name">Prada</span>
+                    <span class="shirt-tooltip__num">#24</span>
+                    <span class="shirt-tooltip__kit">1ª Equipación</span>
+                    <span class="shirt-tooltip__price">35€</span>
+                </div>
+                <div class="shirt-glow"></div>
+                </div>
+
+                <!-- 13 CARRILLO -->
+                <div class="shirt-slot" id="slot-13"
+                    data-player="Carrillo" data-number="20" data-price="35€" data-kit="1ª Equipación">
+                <div class="shirt-wrap">
+                    <img src="assets/img/camisetasTrans/camiCarrilloTrans.png" alt="Camiseta Carrillo #20" class="shirt-img">
+                </div>
+                <div class="shirt-tooltip">
+                    <span class="shirt-tooltip__name">Carrillo</span>
+                    <span class="shirt-tooltip__num">#20</span>
+                    <span class="shirt-tooltip__kit">1ª Equipación</span>
+                    <span class="shirt-tooltip__price">35€</span>
+                </div>
+                <div class="shirt-glow"></div>
+                </div>
+
+                <!-- Spotlight que sigue al cursor -->
+                <div class="vestuario-spotlight" id="spotlight"></div>
+
+            </div><!-- /vestuario-stage -->
+
+        </section>
     </main>
     <footer>
         &copy; 2026 Equipo de Fútbol. Todos los derechos reservados.
     </footer>
+    <script src="assets/js/camisetas.js"></script>
 </body>
 </html>
