@@ -31,6 +31,78 @@ body {
     text-shadow: #000000 1px 0 10px;
 }
 
+.intro button {
+    /* margin-top: 0.4rem; */
+    padding: 0.95rem 2rem;
+    min-width: 220px;
+    width: min(90%, 280px);
+    font-size: clamp(1rem, 1.4vw, 1.2rem);
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+.intro a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.intro button:hover,
+.intro button:focus-visible {
+    transform: translateY(-2px);
+    background: rgba(104, 215, 145, 1);
+}
+
+.intro button:focus-visible {
+    outline: 3px solid rgba(255, 255, 255, 0.9);
+    outline-offset: 4px;
+}
+
+@media (max-width: 768px) {
+    .intro {
+        height: auto;
+        padding: 4rem 1.5rem; 
+    }
+
+    .intro h2 {
+        font-size: clamp(2.4rem, 5vw, 3rem);
+    }
+
+    .intro p {
+        font-size: clamp(1rem, 2.2vw, 1.2rem);
+        max-width: 720px;
+        padding: 0 1rem;
+    }
+
+    .intro button {
+        padding: 0.85rem 1.8rem;
+        min-width: 200px;
+        width: min(90%, 260px);
+        font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .intro h2 {
+        font-size: clamp(2rem, 7vw, 2.6rem);
+    }
+
+    .intro p {
+        font-size: clamp(0.95rem, 3.5vw, 1rem);
+    }
+
+    .intro button {
+        padding: 0.8rem 1.6rem;
+        min-width: 180px;
+        width: min(90%, 240px);
+        font-size: 0.95rem;
+    }
+}
+
 main {
     text-align: center;
 }
