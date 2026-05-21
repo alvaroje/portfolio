@@ -41,7 +41,7 @@ body {
     background: #000;
     color: #fff;
     border: none;
-    border-radius: 999px;
+    border-radius: 30px;
     cursor: pointer;
     transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
     box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
@@ -59,11 +59,6 @@ body {
 }
 
 @media (max-width: 768px) {
-    .intro {
-        height: auto;
-        padding: 4rem 1.5rem; 
-    }
-
     .intro h2 {
         font-size: clamp(2.4rem, 5vw, 3rem);
     }
@@ -75,10 +70,10 @@ body {
     }
 
     .intro button {
-        padding: 0.85rem 1.8rem;
+        margin-top: 3rem;
         min-width: 200px;
         width: min(90%, 260px);
-        font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+        /* font-size: clamp(0.95rem, 1.8vw, 1.1rem); */
     }
 }
 
