@@ -118,8 +118,8 @@
     slots.forEach((slot) => {
       slot.addEventListener('mouseenter', () => {
         cursor.style.transform = 'translate(-50%, -50%) scale(2.2)';
-        cursor.style.background = 'rgba(255, 215, 0, 0.85)';
-        cursor.style.boxShadow = '0 0 16px rgba(255,215,0,0.8)';
+        cursor.style.background = 'rgba(255, 215, 0, 0)';
+        cursor.style.boxShadow = '0 0 16px rgba(255,215,0,0)';
       });
       slot.addEventListener('mouseleave', () => {
         cursor.style.transform = 'translate(-50%, -50%) scale(1)';
