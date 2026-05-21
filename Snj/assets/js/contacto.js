@@ -1,6 +1,6 @@
 /**
  * contacto.js — SNJ FC · Formulario de Fichaje
- * Campos: nombre, edad, correo, posicion, nivel, comentario
+ * Validación en cliente + envío al backend PHP vía fetch()
  */
 
 'use strict';
@@ -10,10 +10,10 @@ const formulario = document.getElementById('formulario');
 
 /* ── Expresiones regulares de validación ── */
 const expresiones = {
-    nombre:     /^[a-zA-ZÀ-ÿ\s]{3,50}$/,              // Letras y espacios, mín. 3 caracteres
-    edad:       /^(1[4-9]|[2-5][0-9]|6[0-5])$/,       // Entero entre 14 y 65
+    nombre:     /^[a-zA-ZÀ-ÿ\s]{3,50}$/,
+    edad:       /^(1[4-9]|[2-5][0-9]|6[0-5])$/,
     correo:     /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
-    comentario: /^[\s\S]{20,600}$/                      // Mínimo 20 caracteres
+    comentario: /^[\s\S]{20,600}$/
 };
 
 /* ── Estado de validez de cada campo ── */
@@ -27,7 +27,7 @@ const campos = {
 };
 
 /* ================================================================
-   FUNCIÓN PRINCIPAL DE VALIDACIÓN DE CAMPOS CON INPUT/TEXTAREA
+   VALIDACIÓN GENÉRICA DE INPUTS / TEXTAREA
    ================================================================ */
 const validarCampo = (expresion, input, campo) => {
     const grupo = document.getElementById(`grupo__${campo}`);
@@ -37,22 +37,20 @@ const validarCampo = (expresion, input, campo) => {
     if (expresion.test(input.value.trim())) {
         grupo.classList.remove('formulario__grupo-incorrecto');
         grupo.classList.add('formulario__grupo-correcto');
-        icono.classList.add('fa-circle-check');
-        icono.classList.remove('fa-circle-xmark');
+        icono.classList.replace('fa-circle-xmark', 'fa-circle-check');
         error.classList.remove('formulario__input-error-activo');
         campos[campo] = true;
     } else {
         grupo.classList.add('formulario__grupo-incorrecto');
         grupo.classList.remove('formulario__grupo-correcto');
-        icono.classList.add('fa-circle-xmark');
-        icono.classList.remove('fa-circle-check');
+        icono.classList.replace('fa-circle-check', 'fa-circle-xmark');
         error.classList.add('formulario__input-error-activo');
         campos[campo] = false;
     }
 };
 
 /* ================================================================
-   FUNCIÓN DE VALIDACIÓN DE SELECT (posición)
+   VALIDACIÓN DE SELECT (posición)
    ================================================================ */
 const validarSelect = (select) => {
     const grupo = document.getElementById('grupo__posicion');
@@ -62,15 +60,13 @@ const validarSelect = (select) => {
     if (select.value !== '') {
         grupo.classList.remove('formulario__grupo-incorrecto');
         grupo.classList.add('formulario__grupo-correcto');
-        icono.classList.add('fa-circle-check');
-        icono.classList.remove('fa-circle-xmark');
+        icono.classList.replace('fa-circle-xmark', 'fa-circle-check');
         error.classList.remove('formulario__input-error-activo');
         campos.posicion = true;
     } else {
         grupo.classList.add('formulario__grupo-incorrecto');
         grupo.classList.remove('formulario__grupo-correcto');
-        icono.classList.add('fa-circle-xmark');
-        icono.classList.remove('fa-circle-check');
+        icono.classList.replace('fa-circle-check', 'fa-circle-xmark');
         error.classList.add('formulario__input-error-activo');
         campos.posicion = false;
     }
@@ -78,39 +74,28 @@ const validarSelect = (select) => {
 
 /* ================================================================
    SLIDER DE NIVEL
-   Actualiza el badge visual, el campo oculto y el estado de validez
    ================================================================ */
-const nivelSlider      = document.getElementById('nivel');
-const nivelValorBadge  = document.getElementById('nivelValor');
-const nivelEtiqueta    = document.getElementById('nivelEtiqueta');
-const nivelHidden      = document.getElementById('nivel_value');
+const nivelSlider     = document.getElementById('nivel');
+const nivelValorBadge = document.getElementById('nivelValor');
+const nivelEtiqueta   = document.getElementById('nivelEtiqueta');
+const nivelHidden     = document.getElementById('nivel_value');
 
 const etiquetasNivel = {
-    1:  'Principiante',
-    2:  'Iniciado',
-    3:  'Básico',
-    4:  'Amateur',
-    5:  'Intermedio',
-    6:  'Avanzado',
-    7:  'Competitivo',
-    8:  'Semi-pro',
-    9:  'Profesional',
+    1: 'Principiante', 2: 'Iniciado',   3: 'Básico',
+    4: 'Amateur',      5: 'Intermedio', 6: 'Avanzado',
+    7: 'Competitivo',  8: 'Semi-pro',   9: 'Profesional',
     10: 'Élite 🏆'
 };
 
 const actualizarSlider = (valor) => {
-    nivelValorBadge.textContent  = valor;
-    nivelEtiqueta.textContent    = etiquetasNivel[valor] || '';
-    nivelHidden.value            = valor;
+    nivelValorBadge.textContent = valor;
+    nivelEtiqueta.textContent   = etiquetasNivel[valor] || '';
+    nivelHidden.value           = valor;
 
-    /* Relleno de color proporcional */
     const pct = ((valor - 1) / 9) * 100;
     nivelSlider.style.setProperty('--slider-pct', `${pct}%`);
 
-    /* El nivel se considera válido en cuanto el usuario interactúa */
     campos.nivel = true;
-
-    /* Quita estado incorrecto si lo había */
     const grupo = document.getElementById('grupo__nivel');
     grupo.classList.remove('formulario__grupo-incorrecto');
     grupo.classList.add('formulario__grupo-correcto');
@@ -130,11 +115,8 @@ const charCount = document.getElementById('charCount');
 
 textarea.addEventListener('input', () => {
     const len = textarea.value.length;
-    charCount.textContent = len;
-
-    /* Cambia color cuando se acerca al límite */
-    charCount.style.color = len > 540 ? '#c0392b' : '';
-
+    charCount.textContent  = len;
+    charCount.style.color  = len > 540 ? '#c0392b' : '';
     validarCampo(expresiones.comentario, textarea, 'comentario');
 });
 
@@ -145,93 +127,137 @@ textarea.addEventListener('blur', () => {
 /* ================================================================
    LISTENERS DE INPUTS DE TEXTO / EMAIL / NUMBER
    ================================================================ */
-const validarFormulario = (e) => {
+const validarInput = (e) => {
     switch (e.target.name) {
-        case 'nombre':
-            validarCampo(expresiones.nombre, e.target, 'nombre');
-            break;
-        case 'edad':
-            validarCampo(expresiones.edad, e.target, 'edad');
-            break;
-        case 'correo':
-            validarCampo(expresiones.correo, e.target, 'correo');
-            break;
+        case 'nombre':   validarCampo(expresiones.nombre,   e.target, 'nombre');   break;
+        case 'edad':     validarCampo(expresiones.edad,     e.target, 'edad');     break;
+        case 'correo':   validarCampo(expresiones.correo,   e.target, 'correo');   break;
     }
 };
 
-/* Recogemos solo los inputs de texto/email/number (no range, no hidden) */
-const inputsTexto = formulario.querySelectorAll(
-    'input[type="text"], input[type="email"], input[type="number"]'
-);
+formulario
+    .querySelectorAll('input[type="text"], input[type="email"], input[type="number"]')
+    .forEach((input) => {
+        input.addEventListener('keyup', validarInput);
+        input.addEventListener('blur',  validarInput);
+    });
 
-inputsTexto.forEach((input) => {
-    input.addEventListener('keyup', validarFormulario);
-    input.addEventListener('blur',  validarFormulario);
-});
-
-/* Select de posición */
 const selectPosicion = document.getElementById('posicion');
 selectPosicion.addEventListener('change', () => validarSelect(selectPosicion));
 selectPosicion.addEventListener('blur',   () => validarSelect(selectPosicion));
 
 /* ================================================================
-   ENVÍO DEL FORMULARIO
-   Comprueba que todos los campos son válidos antes de proceder
+   HELPERS UI
    ================================================================ */
-formulario.addEventListener('submit', (e) => {
+const btnEnviar   = formulario.querySelector('.formulario__btn');
+const msgError    = document.getElementById('formulario__mensaje');
+const msgExito    = document.getElementById('formulario__mensaje-exito');
+
+/** Muestra un mensaje de error global durante ms milisegundos */
+const mostrarError = (texto, ms = 6000) => {
+    msgError.querySelector('p').innerHTML =
+        `<i class="fa-solid fa-triangle-exclamation"></i> <b>Error:</b> ${texto}`;
+    msgError.classList.add('formulario__mensaje-activo');
+    setTimeout(() => msgError.classList.remove('formulario__mensaje-activo'), ms);
+};
+
+/** Resetea el formulario visualmente tras un envío exitoso */
+const resetFormulario = () => {
+    formulario.reset();
+
+    nivelValorBadge.textContent = '—';
+    nivelEtiqueta.textContent   = '';
+    nivelHidden.value           = '';
+    nivelSlider.value           = 5;
+    nivelSlider.style.setProperty('--slider-pct', '44%');
+    charCount.textContent       = '0';
+
+    Object.keys(campos).forEach(k => { campos[k] = false; });
+    formulario.querySelectorAll('.formulario__grupo-correcto')
+              .forEach(g => g.classList.remove('formulario__grupo-correcto'));
+};
+
+/** Cambia el botón a estado de carga mientras espera la respuesta del servidor */
+const setBtnLoading = (loading) => {
+    btnEnviar.disabled = loading;
+    btnEnviar.innerHTML = loading
+        ? '<i class="fa-solid fa-spinner fa-spin"></i> Enviando…'
+        : '<i class="fa-solid fa-paper-plane"></i> Enviar solicitud';
+};
+
+/* ================================================================
+   ENVÍO DEL FORMULARIO
+   ================================================================ */
+formulario.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    /* Forzamos validación de campos que el usuario no haya tocado */
-    validarCampo(expresiones.nombre,     document.getElementById('nombre'),      'nombre');
-    validarCampo(expresiones.edad,       document.getElementById('edad'),        'edad');
-    validarCampo(expresiones.correo,     document.getElementById('correo'),      'correo');
+    // 1. Forzar validación de todos los campos (por si el usuario no los tocó)
+    validarCampo(expresiones.nombre,   document.getElementById('nombre'),   'nombre');
+    validarCampo(expresiones.edad,     document.getElementById('edad'),     'edad');
+    validarCampo(expresiones.correo,   document.getElementById('correo'),   'correo');
     validarSelect(selectPosicion);
-    validarCampo(expresiones.comentario, textarea,                               'comentario');
+    validarCampo(expresiones.comentario, textarea, 'comentario');
 
-    /* El nivel requiere interacción; si no se tocó, lo marcamos inválido */
     if (!campos.nivel) {
-        const grupo = document.getElementById('grupo__nivel');
-        grupo.classList.add('formulario__grupo-incorrecto');
-        grupo.querySelector('.formulario__input-error')
-             .classList.add('formulario__input-error-activo');
+        const grupoNivel = document.getElementById('grupo__nivel');
+        grupoNivel.classList.add('formulario__grupo-incorrecto');
+        grupoNivel.querySelector('.formulario__input-error')
+                  .classList.add('formulario__input-error-activo');
     }
 
-    const todoValido = Object.values(campos).every(Boolean);
+    // 2. Si algún campo es inválido, no enviamos
+    if (!Object.values(campos).every(Boolean)) {
+        mostrarError('Por favor completa todos los campos correctamente.');
+        return;
+    }
 
-    if (todoValido) {
-        /* ── ÉXITO ── */
-        formulario.reset();
+    // 3. Preparar el payload JSON que recibirá PHP
+    const payload = {
+        nombre:     document.getElementById('nombre').value.trim(),
+        edad:       parseInt(document.getElementById('edad').value, 10),
+        correo:     document.getElementById('correo').value.trim(),
+        posicion:   selectPosicion.value,
+        nivel:      parseInt(nivelHidden.value, 10),
+        comentario: textarea.value.trim()
+    };
 
-        /* Resetea el slider visualmente */
-        nivelValorBadge.textContent = '—';
-        nivelEtiqueta.textContent   = '';
-        nivelHidden.value           = '';
-        nivelSlider.value           = 5;
-        nivelSlider.style.setProperty('--slider-pct', '44%');
-        charCount.textContent       = '0';
+    // 4. Enviar al backend PHP con fetch()
+    setBtnLoading(true);
 
-        /* Restablece estado de campos */
-        Object.keys(campos).forEach(k => { campos[k] = false; });
+    try {
+        const respuesta = await fetch('api/fichaje.php', {
+            method:  'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body:    JSON.stringify(payload)
+        });
 
-        /* Quita clases de correcto */
-        formulario.querySelectorAll('.formulario__grupo-correcto')
-                  .forEach(g => g.classList.remove('formulario__grupo-correcto'));
+        const datos = await respuesta.json();
 
-        /* Muestra mensaje de éxito */
-        const msgExito = document.getElementById('formulario__mensaje-exito');
-        msgExito.classList.add('formulario__mensaje-exito-activo');
-        setTimeout(() => {
-            msgExito.classList.remove('formulario__mensaje-exito-activo');
-        }, 6000);
+        if (respuesta.ok && datos.ok) {
+            // ── ÉXITO ──
+            resetFormulario();
+            msgExito.classList.add('formulario__mensaje-exito-activo');
+            setTimeout(() => {
+                msgExito.classList.remove('formulario__mensaje-exito-activo');
+            }, 7000);
 
-        /* TODO: aquí se conectará con la base de datos / backend */
+        } else {
+            // ── Error controlado devuelto por PHP ──
+            let textoError = datos.mensaje || 'Error al enviar la solicitud.';
 
-    } else {
-        /* ── ERROR ── */
-        const msgError = document.getElementById('formulario__mensaje');
-        msgError.classList.add('formulario__mensaje-activo');
-        setTimeout(() => {
-            msgError.classList.remove('formulario__mensaje-activo');
-        }, 5000);
+            // Si el servidor devolvió errores de validación detallados, los listamos
+            if (datos.errores && datos.errores.length) {
+                textoError += '<br>' + datos.errores.join('<br>');
+            }
+            mostrarError(textoError);
+        }
+
+    } catch (errorRed) {
+        // Error de red (sin conexión, servidor caído…)
+        console.error('[SNJ FC] Error de red:', errorRed);
+        mostrarError('No se pudo conectar con el servidor. Comprueba tu conexión e inténtalo de nuevo.');
+
+    } finally {
+        setBtnLoading(false);
     }
 });

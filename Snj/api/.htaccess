@@ -1,0 +1,28 @@
+# ============================================================
+#  .htaccess — SNJ FC · Carpeta /api/
+#  Coloca este archivo DENTRO de la carpeta /api/
+# ============================================================
+
+# ── Bloquear acceso directo a config.php desde el navegador ──
+# Si alguien escribe "tudominio.com/api/config.php" en el navegador
+# recibirá un 403 Forbidden en vez de ver las credenciales.
+<Files "config.php">
+    Order Allow,Deny
+    Deny from all
+</Files>
+
+# ── Solo permitir acceso a fichaje.php ───────────────────────
+<FilesMatch "^(?!fichaje\.php$).*\.php$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# ── Desactivar listado de directorios ────────────────────────
+Options -Indexes
+
+# ── Cabeceras de seguridad extra ─────────────────────────────
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "DENY"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
