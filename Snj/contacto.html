@@ -3,100 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto SNJ FC</title>
+    <title>Fichajes SNJ FC</title>
     <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Bebas+Neue&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/contacto.css">
 </head>
 <body>
     <div id="header"></div>
     <script src="assets/js/header.js"></script>
+
     <main>
+
+        <!-- ── Cabecera decorativa ── -->
+        <div class="contacto-header">
+            <div class="contacto-header__line"></div>
+            <h2 class="contacto-header__title">
+                <span class="contacto-header__title--accent">QUIERO FICHAR</span>
+                <span class="contacto-header__title--sub">Rellena el formulario y nos ponemos en contacto contigo</span>
+            </h2>
+            <div class="contacto-header__line"></div>
+        </div>
+
         <div class="mainForm">
-            <form action="" class="formulario" id="formulario">
-                <!-- Grupo: Usuario -->
-                <div class="formulario__grupo" id="grupo__usuario">
-                    <label for="usuario" class="formulario__label">Usuario</label>
-                    <div class="formulario__grupo-input">
-                        <input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="alvaroje_157">
-                        <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
-                    </div>
-                    <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 digitos y solo puede contener numeros, letras y guion bajo.</p>
-                </div>
+            <form action="" class="formulario" id="formulario" novalidate>
 
                 <!-- Grupo: Nombre -->
                 <div class="formulario__grupo" id="grupo__nombre">
-                    <label for="nombre" class="formulario__label">Nombre</label>
-                    <div class="formulario__grupo-input">
-                        <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Alvaro">
-                        <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
-                    </div>
-                    <p class="formulario__input-error">El nombre tiene que ser de 4 a 16 digitos y solo puede contener numeros, letras y guion bajo.</p>
-                </div>
-
-                <!-- Grupo: Contraseña -->
-                <div class="formulario__grupo" id="grupo__password">
-                    <label for="password" class="formulario__label">Contraseña</label>
-                    <div class="formulario__grupo-input">
-                        <input type="password" class="formulario__input" name="password" id="password">
-                        <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
-                    </div>
-                    <p class="formulario__input-error">La contraseña tiene que ser de 4 a 12 digitos</p>
-                </div>
-
-                <!-- Grupo: Contraseña 2 -->
-                <div class="formulario__grupo" id="grupo__password2">
-                    <label for="password2" class="formulario__label">Repetir contraseña</label>
-                    <div class="formulario__grupo-input">
-                        <input type="password" class="formulario__input" name="password2" id="password2">
-                        <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
-                    </div>
-                    <p class="formulario__input-error">La contraseña tiene que ser igual</p>
-                </div>
-
-                <!-- Grupo: Correo Electronico -->
-                <div class="formulario__grupo" id="grupo__correo">
-                    <label for="correo" class="formulario__label">Correo Electronico</label>
-                    <div class="formulario__grupo-input">
-                        <input type="email" class="formulario__input" name="correo" id="correo" placeholder="pepito@gmail.com">
-                        <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
-                    </div>
-                    <p class="formulario__input-error">El correo solo puede contener letras numeros, puntos, guiones y guion bajo.</p>
-                </div>
-
-                <!-- Grupo: Correo Telefono -->
-                <div class="formulario__grupo" id="grupo__telefono">
-                    <label for="telefono" class="formulario__label">Telefono</label>
-                    <div class="formulario__grupo-input">
-                        <input type="text" class="formulario__input" name="telefono" id="telefono" placeholder="663783881">
-                        <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
-                    </div>
-                    <p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 digitos.</p>
-                </div>
-
-                <!-- Grupo: Terminos y Condiciones -->
-                <div class="formularios__grupo" id="grupo__terminos">
-                    <label class="formulario__label">
-                        <input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
-                        Acepto los Terminos y Condiciones
+                    <label for="nombre" class="formulario__label">
+                        <i class="fa-solid fa-user formulario__label-icon"></i> Nombre completo
                     </label>
+                    <div class="formulario__grupo-input">
+                        <input type="text" class="formulario__input" name="nombre" id="nombre"
+                               placeholder="Álvaro García" autocomplete="name">
+                        <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                    </div>
+                    <p class="formulario__input-error">
+                        <i class="fa-solid fa-circle-info"></i>
+                        Mínimo 3 letras, solo letras y espacios.
+                    </p>
                 </div>
 
-                <div class="formulario__mensaje" id="formulario__mensaje">
-                    <p><i class="fa-solid fa-triangle-exclamation"></i> <b>Error:</b> Por favor rellena el formulario</p>
+                <!-- Grupo: Edad -->
+                <div class="formulario__grupo" id="grupo__edad">
+                    <label for="edad" class="formulario__label">
+                        <i class="fa-solid fa-cake-candles formulario__label-icon"></i> Edad
+                    </label>
+                    <div class="formulario__grupo-input">
+                        <input type="number" class="formulario__input" name="edad" id="edad"
+                               placeholder="22" min="14" max="65">
+                        <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                    </div>
+                    <p class="formulario__input-error">
+                        <i class="fa-solid fa-circle-info"></i>
+                        Debes tener entre 14 y 65 años.
+                    </p>
                 </div>
 
-                <div class="formulario_grupo formulario__grupo-btn-enviar">
-                    <button type="submit" class="formulario__btn">Enviar</button>
-                    <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
+                <!-- Grupo: Correo Electrónico -->
+                <div class="formulario__grupo" id="grupo__correo">
+                    <label for="correo" class="formulario__label">
+                        <i class="fa-solid fa-envelope formulario__label-icon"></i> Correo electrónico
+                    </label>
+                    <div class="formulario__grupo-input">
+                        <input type="email" class="formulario__input" name="correo" id="correo"
+                               placeholder="jugador@gmail.com" autocomplete="email">
+                        <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                    </div>
+                    <p class="formulario__input-error">
+                        <i class="fa-solid fa-circle-info"></i>
+                        Introduce un correo válido. Te notificaremos aquí si eres fichado.
+                    </p>
                 </div>
+
+                <!-- Grupo: Posición -->
+                <div class="formulario__grupo" id="grupo__posicion">
+                    <label for="posicion" class="formulario__label">
+                        <i class="fa-solid fa-shirt formulario__label-icon"></i> Posición
+                    </label>
+                    <div class="formulario__grupo-input formulario__grupo-input--select">
+                        <select class="formulario__input formulario__select" name="posicion" id="posicion">
+                            <option value="" disabled selected>Selecciona tu posición…</option>
+                            <optgroup label="Portería">
+                                <option value="POR">Portero (POR)</option>
+                            </optgroup>
+                            <optgroup label="Defensa">
+                                <option value="LD">Lateral Derecho (LD)</option>
+                                <option value="LI">Lateral Izquierdo (LI)</option>
+                                <option value="DFC">Defensa Central (DFC)</option>
+                                <option value="LIB">Líbero (LIB)</option>
+                            </optgroup>
+                            <optgroup label="Centrocampo">
+                                <option value="MCD">Mediocentro Defensivo (MCD)</option>
+                                <option value="MC">Mediocentro (MC)</option>
+                                <option value="MCO">Mediapunta (MCO)</option>
+                                <option value="ED">Extremo Derecho (ED)</option>
+                                <option value="EI">Extremo Izquierdo (EI)</option>
+                            </optgroup>
+                            <optgroup label="Delantera">
+                                <option value="SD">Segundo Delantero (SD)</option>
+                                <option value="DC">Delantero Centro (DC)</option>
+                            </optgroup>
+                        </select>
+                        <!-- Sin icono de validación en el select; se gestiona por JS con clase -->
+                        <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                    </div>
+                    <p class="formulario__input-error">
+                        <i class="fa-solid fa-circle-info"></i>
+                        Debes seleccionar una posición.
+                    </p>
+                </div>
+
+                <!-- Grupo: Nivel de juego -->
+                <div class="formulario__grupo formulario__grupo--full" id="grupo__nivel">
+                    <label class="formulario__label">
+                        <i class="fa-solid fa-star formulario__label-icon"></i>
+                        Nivel de juego &nbsp;
+                        <span class="nivel-valor" id="nivelValor">—</span>
+                        <span class="nivel-etiqueta" id="nivelEtiqueta"></span>
+                    </label>
+                    <div class="nivel-slider-wrap">
+                        <span class="nivel-min">1</span>
+                        <input type="range" class="formulario__slider" name="nivel" id="nivel"
+                               min="1" max="10" step="1" value="5">
+                        <span class="nivel-max">10</span>
+                    </div>
+                    <div class="nivel-marks" aria-hidden="true">
+                        <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                        <span>6</span><span>7</span><span>8</span><span>9</span><span>10</span>
+                    </div>
+                    <!-- Campo oculto para la lógica de validación uniforme -->
+                    <input type="hidden" name="nivel_value" id="nivel_value" value="">
+                    <p class="formulario__input-error">
+                        <i class="fa-solid fa-circle-info"></i>
+                        Mueve el control para indicar tu nivel.
+                    </p>
+                </div>
+
+                <!-- Grupo: Comentario / Motivación -->
+                <div class="formulario__grupo formulario__grupo--full" id="grupo__comentario">
+                    <label for="comentario" class="formulario__label">
+                        <i class="fa-solid fa-comment-dots formulario__label-icon"></i>
+                        ¿Por qué quieres jugar con nosotros?
+                    </label>
+                    <div class="formulario__grupo-input">
+                        <textarea class="formulario__input formulario__textarea"
+                                  name="comentario" id="comentario"
+                                  placeholder="Cuéntanos tu motivación, experiencia previa o cualquier duda que tengas…"
+                                  rows="4" maxlength="600"></textarea>
+                        <i class="formulario__validacion-estado fa-solid fa-circle-xmark"></i>
+                        <span class="textarea-counter"><span id="charCount">0</span>/600</span>
+                    </div>
+                    <p class="formulario__input-error">
+                        <i class="fa-solid fa-circle-info"></i>
+                        Escribe al menos 20 caracteres.
+                    </p>
+                </div>
+
+                <!-- Mensaje de error global -->
+                <div class="formulario__mensaje formulario__grupo--full" id="formulario__mensaje">
+                    <p>
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                        <b>Error:</b> Por favor completa todos los campos correctamente.
+                    </p>
+                </div>
+
+                <!-- Botón enviar -->
+                <div class="formulario__grupo-btn-enviar formulario__grupo--full">
+                    <button type="submit" class="formulario__btn">
+                        <i class="fa-solid fa-paper-plane"></i> Enviar solicitud
+                    </button>
+                    <p class="formulario__mensaje-exito" id="formulario__mensaje-exito">
+                        <i class="fa-solid fa-circle-check"></i>
+                        ¡Solicitud enviada! Te contactaremos pronto.
+                    </p>
+                </div>
+
             </form>
         </div>
+
     </main>
+
     <footer>
-        &copy; 2026 Equipo de Fútbol. Todos los derechos reservados.
+        &copy; 2026 SNJ FC. Todos los derechos reservados.
     </footer>
+
     <script src="assets/js/contacto.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </body>
 </html>

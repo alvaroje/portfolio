@@ -1,192 +1,467 @@
+/* ============================================================
+   CONTACTO / FICHAJES — SNJ FC
+   contacto.css
+   ============================================================ */
+
 * {
-	box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-	font-family: 'Roboto', sans-serif;
-	background-color: rgb(26, 26, 26);
-	display: flex;
-    flex-direction: column; /* Configura el body como un contenedor flex */
-    min-height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
+    font-family: 'Roboto', sans-serif;
+    background-color: rgb(26, 26, 26);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 .header-contacto {
-	color: #68d791;
+    color: #68d791;
 }
 
 main {
-    flex: 1; /* Hace que el main ocupe el espacio disponible entre el header y el footer */
+    flex: 1;
     width: 100%;
     background: url(../img/fondo_marmol.webp) no-repeat center center;
     background-size: cover;
 }
 
+/* ============================================================
+   CABECERA DECORATIVA (mismo estilo que sección camisetas)
+   ============================================================ */
+.contacto-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2.5rem 2rem 1rem;
+    max-width: 860px;
+    margin: 0 auto;
+}
+
+.contacto-header__line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #68d791, transparent);
+    opacity: 0.7;
+}
+
+.contacto-header__title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.contacto-header__title--accent {
+    font-family: 'Bebas Neue', 'Impact', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    letter-spacing: 0.15em;
+    color: #68d791;
+    text-shadow: 0 0 20px rgba(104, 215, 145, 0.5);
+}
+
+.contacto-header__title--sub {
+    font-family: 'Rajdhani', 'Segoe UI', sans-serif;
+    font-size: clamp(0.65rem, 1.4vw, 0.8rem);
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    color: #555;
+    text-transform: uppercase;
+    margin-top: 0.3rem;
+    text-align: center;
+    white-space: normal;
+}
+
+/* ============================================================
+   CONTENEDOR DEL FORMULARIO
+   ============================================================ */
 .mainForm {
-	max-width: 800px;
-	width: 100%;
-	margin: auto;
-	margin-top: 4%;
-	padding: 40px;
+    max-width: 860px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 1.5rem;
+    margin-bottom: 3rem;
+    padding: 40px;
     border-radius: 20px;
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-	background-color: #68d791;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.35);
+    background-color: #68d791;
 }
 
+/* ============================================================
+   GRID DEL FORMULARIO
+   Columnas: 2 columnas base; campos --full ocupan ambas
+   ============================================================ */
 .formulario {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
 
+/* Clase utilitaria para campos que ocupan toda la fila */
+.formulario__grupo--full {
+    grid-column: span 2;
+}
+
+/* ── Label ── */
 .formulario__label {
-	display: block;
-	font-weight: 700;
-	padding: 10px;
-	cursor: pointer;
+    display: block;
+    font-weight: 700;
+    padding: 10px 10px 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
 }
 
+.formulario__label-icon {
+    margin-right: 6px;
+    opacity: 0.75;
+}
+
+/* ── Wrapper de input ── */
 .formulario__grupo-input {
-	position: relative;
+    position: relative;
 }
 
+/* ── Inputs de texto / email / number ── */
 .formulario__input {
-	width: 100%;
-	background: #fff;
-	border: 3px solid transparent;
-	border-radius: 3px;
-	height: 45px;
-	line-height: 45px;
-	padding: 0 40px 0 10px;
-	transition: .3 ease all;
+    width: 100%;
+    background: #fff;
+    border: 3px solid transparent;
+    border-radius: 5px;
+    height: 45px;
+    line-height: 45px;
+    padding: 0 40px 0 12px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    appearance: none;
+    -webkit-appearance: none;
 }
 
 .formulario__input:focus {
-	border: 3px solid #0075ff;
-	outline: none;
-	box-shadow: 3px 0px 30px rgba(163, 163, 163, 0.4);
+    border: 3px solid #0075ff;
+    outline: none;
+    box-shadow: 0 0 20px rgba(0, 117, 255, 0.25);
 }
 
+/* ── Select ── */
+.formulario__select {
+    padding-right: 40px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23555' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    background-color: #fff;
+}
+
+.formulario__select option {
+    color: #333;
+}
+
+.formulario__select optgroup {
+    font-weight: 700;
+    color: #111;
+}
+
+/* ── Textarea ── */
+.formulario__textarea {
+    height: auto !important;
+    line-height: 1.5 !important;
+    padding: 12px 40px 12px 12px !important;
+    resize: vertical;
+    min-height: 110px;
+}
+
+/* Contador de caracteres */
+.textarea-counter {
+    position: absolute;
+    bottom: 8px;
+    right: 10px;
+    font-size: 11px;
+    color: #aaa;
+    pointer-events: none;
+    background: rgba(255,255,255,0.8);
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+
+/* ── Icono de validación ── */
+.formulario__validacion-estado {
+    position: absolute;
+    right: 10px;
+    top: 14px;
+    z-index: 100;
+    font-size: 16px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+/* Para textarea: baja el icono al top */
+.formulario__textarea ~ .formulario__validacion-estado {
+    top: 10px;
+}
+
+/* ── Mensaje de error inline ── */
 .formulario__input-error {
-	font-size: 12px;
-	margin-bottom: 0;
-	display: none;
+    font-size: 11.5px;
+    margin: 4px 0 0 4px;
+    display: none;
+    color: #7a1515;
 }
 
 .formulario__input-error-activo {
-	display: block;
+    display: block;
 }
 
-.formulario__validacion-estado {
-	position: absolute;
-	right: 10px;
-	bottom: 15px;
-	z-index: 100;
-	font-size: 16px;
-	opacity: 0;
-}
-
-.formulario__checkbox {
-	margin-right: 10px;
-}
-
-.formulario__grupo-terminos,
-.formulario__mensaje,
-.formulario__grupo-btn-enviar {
-	grid-column: span 2;
-}
-
-.formulario__mensaje {
-	height: 45px;
-	line-height: 45px;
-	background: #f66060;
-	padding: 0 15px;
-	border-radius: 3px;
-	display: none;
-	text-align: center;
-}
-
-.formulario__mensaje-activo {
-	display: block;
-}
-
-.formulario__mensaje p {
-	margin: 0;
-}
-
-.formulario__grupo-btn-enviar {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.formulario__btn {
-	height: 45px;
-	line-height: 45px;
-	width: 30%;
-	background: #000;
-	color: #fff;
-	font-weight: bold;
-	border: none;
-	border-radius: 3px;
-	cursor: pointer;
-	transition: .1s ease all;
-}
-
-.formulario__btn:hover {
-	box-shadow: 3px 0px 30px rgba(163, 163, 163, 1);
-}
-
-.formulario__mensaje-exito {
-	font-size: 14px;
-	color: #069e13;
-	display: none;
-}
-
-.formulario__mensaje-exito-activo {
-	display: block;
-}
-
-/* Estilos para Validacion */
+/* ── Estados de validación ── */
 .formulario__grupo-correcto .formulario__validacion-estado {
-	color: #1ed12d;
-	opacity: 1;
+    color: #1ed12d;
+    opacity: 1;
 }
 
 .formulario__grupo-incorrecto .formulario__label {
-	color: #bb2929;
+    color: #7a1515;
 }
 
 .formulario__grupo-incorrecto .formulario__validacion-estado {
-	color: #bb2929;
-	opacity: 1;
+    color: #bb2929;
+    opacity: 1;
 }
 
 .formulario__grupo-incorrecto .formulario__input {
-	border: 3px solid #bb2929;
+    border: 3px solid #bb2929;
+    box-shadow: 0 0 12px rgba(187, 41, 41, 0.2);
 }
 
-/* Mediaqueries */
-@media screen and (max-width: 800px) {
-	.formulario {
-		grid-template-columns: 1fr;
-	}
-
-	.formulario__grupo-terminos,
-	.formulario__mensaje,
-	.formulario__grupo-btn-enviar {
-		grid-column: 1;
-	}
-
-	.formulario__btn {
-		width: 100%;
-	}
+/* ============================================================
+   SLIDER DE NIVEL
+   ============================================================ */
+.nivel-slider-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 4px 10px;
 }
 
+.nivel-min,
+.nivel-max {
+    font-weight: 700;
+    font-size: 0.85rem;
+    color: #1a3a1a;
+    min-width: 16px;
+    text-align: center;
+}
+
+.formulario__slider {
+    flex: 1;
+    height: 6px;
+    border-radius: 3px;
+    background: linear-gradient(to right, #1a8c4e 0%, #1a8c4e var(--slider-pct, 44%), #c8f0d9 var(--slider-pct, 44%), #c8f0d9 100%);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    transition: background 0.1s;
+}
+
+.formulario__slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #0d0d0d;
+    border: 3px solid #1a8c4e;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+.formulario__slider::-moz-range-thumb {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: #0d0d0d;
+    border: 3px solid #1a8c4e;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.formulario__slider:hover::-webkit-slider-thumb,
+.formulario__slider:focus::-webkit-slider-thumb {
+    transform: scale(1.25);
+    box-shadow: 0 0 0 4px rgba(104, 215, 145, 0.35);
+}
+
+/* Marcas numéricas del slider */
+.nivel-marks {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 36px;
+    font-size: 10px;
+    color: #2a6e3a;
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+/* Badge que muestra el valor seleccionado */
+.nivel-valor {
+    display: inline-block;
+    background: #0d0d0d;
+    color: #68d791;
+    font-family: 'Bebas Neue', 'Impact', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 0.05em;
+    padding: 0 8px;
+    border-radius: 4px;
+    margin-left: 8px;
+    min-width: 2.2rem;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1.5rem;
+}
+
+.nivel-etiqueta {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #1a4a2a;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+
+/* ============================================================
+   MENSAJE DE ERROR GLOBAL
+   ============================================================ */
+.formulario__mensaje {
+    height: 45px;
+    line-height: 45px;
+    background: #f66060;
+    padding: 0 15px;
+    border-radius: 5px;
+    display: none;
+    text-align: center;
+}
+
+.formulario__mensaje-activo {
+    display: block;
+}
+
+.formulario__mensaje p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* ============================================================
+   BOTÓN Y MENSAJE DE ÉXITO
+   ============================================================ */
+.formulario__grupo-btn-enviar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.formulario__btn {
+    height: 48px;
+    line-height: 48px;
+    width: 50%;
+    background: #0d0d0d;
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 0.05em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, transform 0.15s ease, background 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.formulario__btn:hover {
+    box-shadow: 0 0 24px rgba(104, 215, 145, 0.6);
+    transform: translateY(-2px);
+    background: #1a1a1a;
+}
+
+.formulario__btn:active {
+    transform: translateY(0);
+}
+
+.formulario__mensaje-exito {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #064e0e;
+    display: none;
+    text-align: center;
+}
+
+.formulario__mensaje-exito-activo {
+    display: block;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media screen and (max-width: 860px) {
+    .mainForm {
+        border-radius: 0;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .formulario {
+        grid-template-columns: 1fr;
+    }
+
+    .formulario__grupo--full {
+        grid-column: 1;
+    }
+
+    .formulario__btn {
+        width: 100%;
+    }
+
+    .contacto-header {
+        gap: 0.6rem;
+        padding: 1.5rem 1rem 0.5rem;
+    }
+
+    .contacto-header__line {
+        display: none;
+    }
+
+    .mainForm {
+        padding: 24px 18px;
+    }
+
+    .nivel-marks {
+        padding: 0 28px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .contacto-header__title--accent {
+        font-size: 1.8rem;
+    }
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
 footer {
     background-color: #68d791;
     color: white;
     text-align: center;
     padding: 10px 0;
     width: 100%;
-    position: relative; /* Elimina el posicionamiento absoluto */
+    position: relative;
 }

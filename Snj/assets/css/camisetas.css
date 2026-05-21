@@ -190,19 +190,19 @@ main {
      cuartos (4,10):  ~17.5%
      centro  (7):     ~18.5%                    */
 
-#slot-1  { left: 0.5%; top: 30.1%; animation-delay: 0.05s; }
-#slot-2  { left:  8.4%; top: 29.8%; animation-delay: 0.10s; }
-#slot-3  { left: 15.85%; top: 29.6%; animation-delay: 0.15s; }
-#slot-4  { left: 22.8%; top: 29.1%; animation-delay: 0.20s; }
-#slot-5  { left: 29.7%; top: 28.6%; animation-delay: 0.25s; }
-#slot-6  { left: 36.6%; top: 28.3%; animation-delay: 0.30s; }
-#slot-7  { left: 43.7%; top: 28.0%; animation-delay: 0.35s; }
-#slot-8  { left: 51.4%; top: 28.3%; animation-delay: 0.40s; }
-#slot-9  { left: 58.5%; top: 28.6%; animation-delay: 0.45s; }
-#slot-10 { left: 65.7%; top: 29.1%; animation-delay: 0.50s; }
-#slot-11 { left: 73.4%; top: 29.6%; animation-delay: 0.55s; }
-#slot-12 { left: 81.2%; top: 29.8%; animation-delay: 0.60s; }
-#slot-13 { left: 89.9%; top: 30.1%; animation-delay: 0.65s; }
+#slot-1  { left: 0.5%; top: 30.5%; animation-delay: 0.05s; }
+#slot-2  { left:  8.4%; top: 30.2%; animation-delay: 0.10s; }
+#slot-3  { left: 15.85%; top: 30.0%; animation-delay: 0.15s; }
+#slot-4  { left: 22.8%; top: 29.5%; animation-delay: 0.20s; }
+#slot-5  { left: 29.7%; top: 29.0%; animation-delay: 0.25s; }
+#slot-6  { left: 36.6%; top: 28.7%; animation-delay: 0.30s; }
+#slot-7  { left: 43.7%; top: 28.4%; animation-delay: 0.35s; }
+#slot-8  { left: 51.4%; top: 28.7%; animation-delay: 0.40s; }
+#slot-9  { left: 58.5%; top: 29.0%; animation-delay: 0.45s; }
+#slot-10 { left: 65.7%; top: 29.5%; animation-delay: 0.50s; }
+#slot-11 { left: 73.4%; top: 30.0%; animation-delay: 0.55s; }
+#slot-12 { left: 81.2%; top: 30.2%; animation-delay: 0.60s; }
+#slot-13 { left: 89.9%; top: 30.5%; animation-delay: 0.65s; }
 
 /* ── Animación de entrada: caída desde arriba ── */
 @keyframes shirtDrop {

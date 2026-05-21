@@ -29,6 +29,7 @@ body {
     font-size: 25px;
     color: white;
     text-shadow: #000000 1px 0 10px;
+    margin-bottom: 15px;
 }
 
 .intro button {
